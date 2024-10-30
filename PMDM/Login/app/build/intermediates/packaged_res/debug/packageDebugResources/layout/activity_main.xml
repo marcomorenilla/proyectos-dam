@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:padding="28dp"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/loginImage"
+        android:layout_width="300dp"
+        android:layout_height="200dp"
+        android:src="@drawable/login"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/nombreText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:fontFamily="sans-serif-black"
+        android:text="Nombre:"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="@+id/loginImage"
+        app:layout_constraintStart_toStartOf="@+id/loginImage"
+        app:layout_constraintTop_toBottomOf="@+id/loginImage" />
+
+    <EditText
+        android:id="@+id/textoUser"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:hint="Introduce tu nombre..."
+        app:layout_constraintEnd_toEndOf="@+id/nombreText"
+        app:layout_constraintStart_toStartOf="@+id/nombreText"
+        app:layout_constraintTop_toBottomOf="@+id/nombreText" />
+
+    <TextView
+        android:id="@+id/passText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:fontFamily="sans-serif-black"
+        android:text="Contraseña:"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="@+id/textoUser"
+        app:layout_constraintStart_toStartOf="@+id/textoUser"
+        app:layout_constraintTop_toBottomOf="@+id/textoUser" />
+
+    <EditText
+        android:id="@+id/textoPass"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:hint="contraseña..."
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="@+id/passText"
+        app:layout_constraintStart_toStartOf="@+id/passText"
+        app:layout_constraintTop_toBottomOf="@+id/passText" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <Button
+        android:id="@+id/logButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="login"
+        app:layout_constraintEnd_toStartOf="@+id/guideline"
+        app:layout_constraintStart_toStartOf="@+id/textoPass"
+        app:layout_constraintTop_toBottomOf="@+id/textoPass" />
+
+    <Button
+        android:id="@+id/clearButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="clear"
+        app:layout_constraintEnd_toEndOf="@+id/textoPass"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/textoPass" />
+
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:text="¿No tienes cuenta? pulsa aquí"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/registerButton"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:text="Regístrate"
+        android:textAllCaps="false"
+        android:textColor="@color/blue"
+        app:layout_constraintBottom_toBottomOf="@+id/textView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintTop_toTopOf="@+id/textView" />
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

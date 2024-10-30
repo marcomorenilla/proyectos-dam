@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Bicicletas>
+    <Bicicleta categoría="carretera">
+        <marca>Giant</marca>
+        <modelo>TCR Advanced SL</modelo>
+        <anio value="2022"/>
+    </Bicicleta>
+</Bicicletas>

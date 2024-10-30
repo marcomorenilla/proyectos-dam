@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "C:\\Users\\Marco\\.gradle\\daemon\\8.7\\com.example.calculadora.app-mergeDebugResources-30:\\layout\\activity_main.xml",
+        "source": "C:\\Users\\Marco\\.gradle\\daemon\\8.7\\com.example.calculadora.app-main-33:\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "com.example.calculadora.app-mergeDebugResources-30:/layout/activity_main.xml",
+        "source": "com.example.calculadora.app-main-33:/layout/activity_main.xml"
+    }
+]

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<vueltaEspana>
+    <etapas numero="1">
+        <podio>
+            <ciclista>
+                <nombre>Marco</nombre>
+                <equipo>Kern Pharma</equipo>
+                <tiempo>04:15:20</tiempo>
+            </ciclista>
+            <ciclista>
+                <nombre>Tadej Pogacar</nombre>
+                <equipo>UAE</equipo>
+                <tiempo>04:16:30</tiempo>
+            </ciclista>
+            <ciclista>
+                <nombre>Jonas Vingegard</nombre>
+                <equipo>Jumbo Visma</equipo>
+                <tiempo>04:17:30</tiempo>
+            </ciclista>
+        </podio>
+    </etapas>
+    <etapas numero="2">
+        <podio>
+            <ciclista>
+                <nombre>Marco</nombre>
+                <equipo>Kern Pharma</equipo>
+                <tiempo>04:15:20</tiempo>
+            </ciclista>
+            <ciclista>
+                <nombre>Jonas Vingegard</nombre>
+                <equipo>Jumbo Visma</equipo>
+                <tiempo>04:17:30</tiempo>
+            </ciclista>
+            <ciclista>
+                <nombre>Tadej Pogacar</nombre>
+                <equipo>UAE</equipo>
+                <tiempo>04:16:30</tiempo>
+            </ciclista>
+        </podio>
+    </etapas>
+</vueltaEspana>

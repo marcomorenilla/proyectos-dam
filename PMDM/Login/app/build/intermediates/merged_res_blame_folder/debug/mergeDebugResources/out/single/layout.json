@@ -1,0 +1,26 @@
+[
+    {
+        "merged": "com.example.login.app-mergeDebugResources-30:/layout/activity_register.xml",
+        "source": "com.example.login.app-main-33:/layout/activity_register.xml"
+    },
+    {
+        "merged": "C:\\Users\\Marco\\.gradle\\daemon\\8.7\\com.example.login.app-mergeDebugResources-30:\\layout\\activity_main.xml",
+        "source": "C:\\Users\\Marco\\.gradle\\daemon\\8.7\\com.example.login.app-main-33:\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\Marco\\.gradle\\daemon\\8.7\\com.example.login.app-mergeDebugResources-30:\\layout\\activity_new_user.xml",
+        "source": "C:\\Users\\Marco\\.gradle\\daemon\\8.7\\com.example.login.app-main-33:\\layout\\activity_new_user.xml"
+    },
+    {
+        "merged": "C:\\Users\\Marco\\.gradle\\daemon\\8.7\\com.example.login.app-mergeDebugResources-30:\\layout\\activity_login.xml",
+        "source": "C:\\Users\\Marco\\.gradle\\daemon\\8.7\\com.example.login.app-main-33:\\layout\\activity_login.xml"
+    },
+    {
+        "merged": "C:\\Users\\Marco\\.gradle\\daemon\\8.7\\com.example.login.app-mergeDebugResources-30:\\layout\\activity_register.xml",
+        "source": "C:\\Users\\Marco\\.gradle\\daemon\\8.7\\com.example.login.app-main-33:\\layout\\activity_register.xml"
+    },
+    {
+        "merged": "com.example.login.app-mergeDebugResources-30:/layout/activity_main.xml",
+        "source": "com.example.login.app-main-33:/layout/activity_main.xml"
+    }
+]

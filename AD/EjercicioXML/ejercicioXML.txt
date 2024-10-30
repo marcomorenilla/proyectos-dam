@@ -1,0 +1,54 @@
+1. Ejercicio de Lectura (Read) - Consulta de Podio por Etapa
+Descripción: Crea un programa que lea los datos de tu archivo XML y permita al usuario consultar el podio de cualquier etapa. Puedes hacer esto leyendo todos los elementos <etapa> y mostrando el nombre, equipo y tiempo de los ciclistas en los tres primeros puestos.
+
+Pasos:
+
+Crea un archivo XML con los datos del podio de las primeras etapas.
+En el programa, utiliza la API de Java (por ejemplo, DocumentBuilder y NodeList) para leer los elementos <etapa>.
+Permite al usuario ingresar un número de etapa y muestra el podio para esa etapa.
+Ejemplo de archivo XML:
+
+xml
+Copiar código
+<vueltaEspana>
+    <etapa numero="1">
+        <podio>
+            <ciclista puesto="1" nombre="Juan Pérez" equipo="Equipo A" tiempo="4:32:21" />
+            <ciclista puesto="2" nombre="Luis López" equipo="Equipo B" tiempo="4:32:45" />
+            <ciclista puesto="3" nombre="Carlos Díaz" equipo="Equipo C" tiempo="4:33:10" />
+        </podio>
+    </etapa>
+    <!-- Más etapas -->
+</vueltaEspana>
+2. Ejercicio de Modificación (Update) - Actualización de Resultados de una Etapa
+Descripción: Imagina que quieres actualizar los resultados de una etapa debido a cambios en el tiempo oficial (por ejemplo, una penalización a un ciclista). Este programa debe permitir al usuario actualizar el tiempo de uno de los ciclistas en una etapa y reflejar ese cambio en el archivo XML.
+
+Pasos:
+
+Carga el archivo XML y selecciona la etapa a modificar.
+Solicita al usuario el nombre del ciclista y el nuevo tiempo.
+Actualiza el nodo correspondiente en el XML con el tiempo nuevo.
+Guarda los cambios en el archivo XML.
+Ejemplo de código: Utiliza Transformer para guardar los cambios después de modificar el nodo que corresponde al tiempo del ciclista seleccionado.
+
+3. Ejercicio de Creación y Eliminación (Create/Delete) - Añadir o Eliminar Ciclistas de la Clasificación
+Descripción: Este ejercicio permite al usuario agregar o eliminar ciclistas del podio de una etapa específica. Puede que necesites agregar un ciclista porque hubo un empate o eliminarlo porque quedó descalificado.
+
+Pasos:
+
+Implementa una opción en tu programa para añadir un ciclista nuevo al podio de una etapa específica.
+Solicita al usuario los detalles del ciclista: nombre, equipo, posición y tiempo.
+Crea un nuevo nodo <ciclista> y agrégalo al podio de la etapa seleccionada.
+Implementa otra opción para eliminar un ciclista, en la que el usuario solo deba ingresar el nombre del ciclista y el número de etapa.
+Guarda los cambios realizados en el archivo XML.
+Pistas:
+
+Para agregar, puedes usar Document.createElement() para crear el nodo y Node.appendChild() para agregarlo al podio de la etapa.
+Para eliminar, selecciona el nodo <ciclista> que tenga el nombre especificado y remuévelo con Node.removeChild().
+Estos ejercicios te darán una práctica completa de las operaciones CRUD en XML y una visión de cómo trabajar con archivos XML para representar información de eventos deportivos. Además, al seguir la evolución del podio en la Vuelta a España, ¡te resultará aún más entretenido!
+
+
+
+
+
+

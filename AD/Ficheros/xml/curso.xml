@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/XML/XMLDocument.xml to edit this template
+-->
+
+
+
+<curso name="DAM">
+    <modulo id="1">
+        <nombre>Acceso a datos</nombre>
+        <profesor idea="ninguna">Damian</profesor>
+        <anio>2</anio>
+        <estudiantes>10</estudiantes>
+    </modulo>
+    <modulo id="2">
+        <nombre>Programación multimedia</nombre>
+        <profesor>Borja</profesor>
+        <anio>2</anio>
+        <estudiantes>20</estudiantes>
+    </modulo>
+</curso>
+
