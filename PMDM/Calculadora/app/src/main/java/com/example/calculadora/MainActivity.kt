@@ -106,59 +106,71 @@ class MainActivity : AppCompatActivity(), OnClickListener {
                 binding.textoResultado.text = bufferEntrada
             }
             binding.botonSuma.id->{
-                operando="+"
-                if (numero1==null){
-                    numero1 = bufferEntrada
-                    bufferHistorial += bufferEntrada + " "+  operando
-                }else{
-                    bufferHistorial = resultado + " " + operando
+                if (operando==null){
+                    operando="+"
+                    if (numero1==null){
+                        numero1 = bufferEntrada
+                        bufferHistorial += bufferEntrada + " "+  operando
+                    }else{
+                        bufferHistorial = resultado + " " + operando
+                    }
+                    bufferEntrada = ""
+                    binding.textoOperaciones.text = bufferHistorial
                 }
-                bufferEntrada = ""
-                binding.textoOperaciones.text = bufferHistorial
             }
             binding.botonResta.id->{
-                operando="-"
-                if (numero1==null){
-                    numero1 = bufferEntrada
-                    bufferHistorial += bufferEntrada + " "+  operando
-                }else{
-                    bufferHistorial = resultado + " " + operando
+                if (operando==null) {
+                    operando="-"
+                    if (numero1==null){
+                        numero1 = bufferEntrada
+                        bufferHistorial += bufferEntrada + " "+  operando
+                    }else{
+                        bufferHistorial = resultado + " " + operando
+                    }
+                    bufferEntrada = ""
+                    binding.textoOperaciones.text = bufferHistorial
                 }
-                bufferEntrada = ""
-                binding.textoOperaciones.text = bufferHistorial
             }
             binding.botonMultiplicar.id->{
-                operando="x"
-                if (numero1==null){
-                    numero1 = bufferEntrada
-                    bufferHistorial += bufferEntrada + " "+  operando
-                }else{
-                    bufferHistorial = resultado + " " + operando
+                if (operando==null){
+                    operando="x"
+                    if (numero1==null){
+                        numero1 = bufferEntrada
+                        bufferHistorial += bufferEntrada + " "+  operando
+                    }else{
+                        bufferHistorial = resultado + " " + operando
+                    }
+                    bufferEntrada = ""
+                    binding.textoOperaciones.text = bufferHistorial
                 }
-                bufferEntrada = ""
-                binding.textoOperaciones.text = bufferHistorial
+
             }
             binding.botonDividir.id->{
-                operando="/"
-                if (numero1==null){
-                    numero1 = bufferEntrada
-                    bufferHistorial += bufferEntrada + " "+  operando
-                }else{
-                    bufferHistorial = resultado + " " + operando
+                if(operando==null){
+                    operando="/"
+                    if (numero1==null){
+                        numero1 = bufferEntrada
+                        bufferHistorial += bufferEntrada + " "+  operando
+                    }else{
+                        bufferHistorial = resultado + " " + operando
+                    }
+                    bufferEntrada = ""
+                    binding.textoOperaciones.text = bufferHistorial
                 }
-                bufferEntrada = ""
-                binding.textoOperaciones.text = bufferHistorial
+
             }
             binding.botonPorcentaje.id->{
-                operando="%"
-                if (numero1==null){
-                    numero1 = bufferEntrada
-                    bufferHistorial += bufferEntrada + " "+  operando
-                }else{
-                    bufferHistorial = resultado + " " + operando
+                if(operando==null){
+                    operando="%"
+                    if (numero1==null){
+                        numero1 = bufferEntrada
+                        bufferHistorial += bufferEntrada + " "+  operando
+                    }else{
+                        bufferHistorial = resultado + " " + operando
+                    }
+                    bufferEntrada = ""
+                    binding.textoOperaciones.text = bufferHistorial
                 }
-                bufferEntrada = ""
-                binding.textoOperaciones.text = bufferHistorial
             }
             binding.botonBorrar.id->{
                 bufferEntrada = ""
@@ -167,6 +179,7 @@ class MainActivity : AppCompatActivity(), OnClickListener {
                 binding.textoResultado.text = "0"
                 numero1=null
                 numero2=null
+                operando=null
             }
             binding.botonBorrarUltimo.id->{
                 var borrarUltimo:String =""
@@ -186,11 +199,13 @@ class MainActivity : AppCompatActivity(), OnClickListener {
                     bufferEntrada = "-"+bufferEntrada
                     binding.textoResultado.text = bufferEntrada
                 }
+                bufferHistorial = ""
+                binding.textoOperaciones.text = bufferHistorial
                 numero1=null
 
             }
             binding.botonIgual.id->{
-                if (numero1!=null){
+                if (numero1!=null && !bufferEntrada.equals("")){
                     numero1 = numero1!!.replace(",",".")
                     numero2 = bufferEntrada.replace(",",".")
                     when(operando){
@@ -221,6 +236,7 @@ class MainActivity : AppCompatActivity(), OnClickListener {
                     binding.textoOperaciones.text = bufferHistorial
                     numero1=resultado
                     bufferEntrada=""
+                    operando=null
                 }
 
             }
