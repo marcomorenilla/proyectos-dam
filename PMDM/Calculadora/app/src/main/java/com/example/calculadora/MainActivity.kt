@@ -21,6 +21,7 @@ class MainActivity : AppCompatActivity(), OnClickListener {
     private var numero1:String?=null
     private var numero2:String?=null
     private var resultado:String?=null
+    private val formatoDecimal = Regex("""\.0$""")
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -108,8 +109,10 @@ class MainActivity : AppCompatActivity(), OnClickListener {
                 operando="+"
                 if (numero1==null){
                     numero1 = bufferEntrada
+                    bufferHistorial += bufferEntrada + " "+  operando
+                }else{
+                    bufferHistorial = resultado + " " + operando
                 }
-                bufferHistorial += bufferEntrada + operando
                 bufferEntrada = ""
                 binding.textoOperaciones.text = bufferHistorial
             }
@@ -117,8 +120,10 @@ class MainActivity : AppCompatActivity(), OnClickListener {
                 operando="-"
                 if (numero1==null){
                     numero1 = bufferEntrada
+                    bufferHistorial += bufferEntrada + " "+  operando
+                }else{
+                    bufferHistorial = resultado + " " + operando
                 }
-                bufferHistorial += bufferEntrada + operando
                 bufferEntrada = ""
                 binding.textoOperaciones.text = bufferHistorial
             }
@@ -126,8 +131,10 @@ class MainActivity : AppCompatActivity(), OnClickListener {
                 operando="x"
                 if (numero1==null){
                     numero1 = bufferEntrada
+                    bufferHistorial += bufferEntrada + " "+  operando
+                }else{
+                    bufferHistorial = resultado + " " + operando
                 }
-                bufferHistorial += bufferEntrada + operando
                 bufferEntrada = ""
                 binding.textoOperaciones.text = bufferHistorial
             }
@@ -135,8 +142,10 @@ class MainActivity : AppCompatActivity(), OnClickListener {
                 operando="/"
                 if (numero1==null){
                     numero1 = bufferEntrada
+                    bufferHistorial += bufferEntrada + " "+  operando
+                }else{
+                    bufferHistorial = resultado + " " + operando
                 }
-                bufferHistorial += bufferEntrada + " "+operando
                 bufferEntrada = ""
                 binding.textoOperaciones.text = bufferHistorial
             }
@@ -144,8 +153,10 @@ class MainActivity : AppCompatActivity(), OnClickListener {
                 operando="%"
                 if (numero1==null){
                     numero1 = bufferEntrada
+                    bufferHistorial += bufferEntrada + " "+  operando
+                }else{
+                    bufferHistorial = resultado + " " + operando
                 }
-                bufferHistorial += bufferEntrada + operando
                 bufferEntrada = ""
                 binding.textoOperaciones.text = bufferHistorial
             }
@@ -154,6 +165,8 @@ class MainActivity : AppCompatActivity(), OnClickListener {
                 bufferHistorial = ""
                 binding.textoOperaciones.text = bufferEntrada
                 binding.textoResultado.text = "0"
+                numero1=null
+                numero2=null
             }
             binding.botonBorrarUltimo.id->{
                 var borrarUltimo:String =""
@@ -164,12 +177,17 @@ class MainActivity : AppCompatActivity(), OnClickListener {
                 binding.textoResultado.text = bufferEntrada
             }
             binding.botonCambio.id->{
-                if(bufferEntrada.contains("-")){
-                    bufferEntrada = bufferEntrada.replace("-","")
+                if(binding.textoResultado.text.contains("-")){
+                    bufferEntrada = binding.textoResultado.text.toString()
+                    bufferEntrada= bufferEntrada.replace("-","")
+                    binding.textoResultado.text = bufferEntrada
                 } else{
+                    bufferEntrada=binding.textoResultado.text.toString()
                     bufferEntrada = "-"+bufferEntrada
+                    binding.textoResultado.text = bufferEntrada
                 }
-                binding.textoResultado.text = bufferEntrada
+                numero1=null
+
             }
             binding.botonIgual.id->{
                 if (numero1!=null){
@@ -192,12 +210,14 @@ class MainActivity : AppCompatActivity(), OnClickListener {
                             resultado=porcentaje(numero1!!).toString()
                         }
                     }
-                    val regex = Regex("""\.0$""")
-                    if(resultado!!.contains(regex)){
-                        resultado =  resultado!!.replace(regex,"")
+
+                    if(resultado!!.contains(formatoDecimal)){
+                        resultado =  resultado!!.replace(".0","")
+                    }else{
+                        resultado = resultado!!.replace(".",",")
                     }
                     binding.textoResultado.text = resultado
-                    bufferHistorial += bufferEntrada+ " = " + resultado
+                    bufferHistorial += " " + bufferEntrada+ " = " + resultado
                     binding.textoOperaciones.text = bufferHistorial
                     numero1=resultado
                     bufferEntrada=""
