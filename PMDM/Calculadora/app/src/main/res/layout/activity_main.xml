@@ -9,28 +9,29 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/textoOperaciones"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:id="@+id/textoOperaciones"
+        android:fontFamily="sans-serif-medium"
         android:gravity="center"
-        android:text="operaciones"
+        android:layout_marginBottom="20dp"
+        android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/textoResultado"
         app:layout_constraintEnd_toEndOf="@+id/textoResultado"
-        app:layout_constraintStart_toStartOf="@+id/textoResultado"
-        android:paddingBottom="10dp"/>
-
+        app:layout_constraintStart_toStartOf="parent" />
 
 
     <TextView
         android:id="@+id/textoResultado"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-black"
         android:gravity="center"
-        android:text="Resultado"
+        android:text="0"
+        android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -39,6 +40,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:orientation="horizontal"
+        android:layout_marginTop="50dp"
         app:layout_constraintTop_toBottomOf="@+id/guideline">
 
         <Button
@@ -61,7 +63,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/botonBorrarUltimo"
-            android:text="<-"
+            android:text="delCar"
             android:layout_marginRight="5dp"
             android:layout_marginTop="10dp"/>
 
@@ -239,6 +241,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.5" />
+        app:layout_constraintGuide_percent="0.4" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
