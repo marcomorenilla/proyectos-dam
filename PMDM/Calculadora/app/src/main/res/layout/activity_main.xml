@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
-    android:padding="40dp"
+    android:padding="20dp"
     android:background="@color/white"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
@@ -41,7 +41,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:orientation="horizontal"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintTop_toBottomOf="@+id/guideline">
 
 
@@ -53,9 +53,10 @@
             android:textColor="@color/black"
             android:fontFamily="sans-serif-black"
             android:backgroundTint="@color/blue"
+            android:textSize="20sp"
             android:text="AC"
-            android:layout_marginRight="2dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="20dp"
             android:layout_weight="1"/>
         <Button
             android:layout_width="wrap_content"
@@ -64,17 +65,19 @@
             android:textColor="@color/black"
             android:fontFamily="sans-serif-black"
             android:backgroundTint="@color/blue"
+            android:textSize="20sp"
             android:text="%"
-            android:layout_marginRight="2dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="20dp"
             android:layout_weight="1"/>
 
         <Button
             android:id="@+id/botonBorrarUltimo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="2dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="5dp"
+            android:textSize="20sp"
             android:backgroundTint="@color/blue"
             android:fontFamily="sans-serif-black"
             android:drawableLeft="@drawable/borrar"
@@ -84,8 +87,9 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             android:id="@+id/botonDividir"
+            android:textSize="20sp"
             android:textColor="@color/black"
             android:fontFamily="sans-serif-black"
             android:backgroundTint="@color/blue"
@@ -105,34 +109,37 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="2dp"
+            android:layout_marginRight="5dp"
             android:id="@+id/botonSiete"
             android:text="7"
             android:textColor="@color/black"
+            android:textSize="20sp"
             android:fontFamily="sans-serif-black"
             android:backgroundTint="@color/toupe"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             android:layout_weight="1"/>
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="2dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="20dp"
             android:text="8"
             android:textColor="@color/black"
             android:fontFamily="sans-serif-black"
+            android:textSize="20sp"
             android:backgroundTint="@color/toupe"
             android:id="@+id/botonOcho"
             android:layout_weight="1"/>
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="2dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="5dp"
             android:text="9"
             android:textColor="@color/black"
             android:fontFamily="sans-serif-black"
+            android:textSize="20sp"
             android:backgroundTint="@color/toupe"
             android:id="@+id/botonNueve"
             android:layout_weight="1"/>
@@ -143,7 +150,8 @@
             android:textColor="@color/black"
             android:fontFamily="sans-serif-black"
             android:backgroundTint="@color/blue"
-            android:layout_marginTop="10dp"
+            android:textSize="20sp"
+            android:layout_marginTop="20dp"
             android:id="@+id/botonMultiplicar"
             android:layout_weight="1"/>
 
@@ -161,20 +169,22 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="2dp"
+            android:layout_marginRight="5dp"
             android:id="@+id/botonCuatro"
             android:textColor="@color/black"
+            android:textSize="20sp"
             android:fontFamily="sans-serif-black"
             android:backgroundTint="@color/toupe"
             android:text="4"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             android:layout_weight="1"/>
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="2dp"
+            android:layout_marginTop="20dp"
+            android:textSize="20sp"
+            android:layout_marginRight="5dp"
             android:text="5"
             android:textColor="@color/black"
             android:layout_weight="1"
@@ -184,8 +194,9 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="2dp"
+            android:layout_marginTop="20dp"
+            android:textSize="20sp"
+            android:layout_marginRight="5dp"
             android:layout_weight="1"
             android:textColor="@color/black"
             android:fontFamily="sans-serif-black"
@@ -196,10 +207,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="-"
+            android:textSize="20sp"
             android:textColor="@color/black"
             android:fontFamily="sans-serif-black"
             android:backgroundTint="@color/blue"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             android:layout_weight="1"
             android:id="@+id/botonResta"/>
 
@@ -224,17 +236,19 @@
             android:textColor="@color/black"
             android:fontFamily="sans-serif-black"
             android:backgroundTint="@color/toupe"
-            android:layout_marginRight="2dp"
+            android:layout_marginRight="5dp"
+            android:textSize="20sp"
             android:layout_weight="1"
             android:text="1"
-            android:layout_marginTop="10dp"/>
+            android:layout_marginTop="20dp"/>
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="2dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="5dp"
             android:textColor="@color/black"
+            android:textSize="20sp"
             android:fontFamily="sans-serif-black"
             android:backgroundTint="@color/toupe"
             android:layout_weight="1"
@@ -243,23 +257,25 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             android:text="3"
             android:textColor="@color/black"
             android:fontFamily="sans-serif-black"
             android:backgroundTint="@color/toupe"
-            android:layout_marginRight="2dp"
+            android:layout_marginRight="5dp"
             android:layout_weight="1"
+            android:textSize="20sp"
             android:id="@+id/botonTres"/>
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="+"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             android:textColor="@color/black"
             android:fontFamily="sans-serif-black"
             android:backgroundTint="@color/blue"
             android:layout_weight="1"
+            android:textSize="20sp"
             android:id="@+id/botonSuma"/>
 
     </LinearLayout>
@@ -282,30 +298,33 @@
             android:fontFamily="sans-serif-black"
             android:backgroundTint="@color/blue"
             android:text="+/-"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="2dp"/>
+            android:textSize="20sp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="5dp"/>
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="2dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="5dp"
             android:text="0"
             android:textColor="@color/black"
             android:fontFamily="sans-serif-black"
             android:layout_weight="1"
             android:backgroundTint="@color/toupe"
+            android:textSize="20sp"
             android:id="@+id/botonCero"/>
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="2dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="5dp"
             android:text=","
             android:textColor="@color/black"
             android:fontFamily="sans-serif-black"
             android:backgroundTint="@color/blue"
+            android:textSize="20sp"
             android:id="@+id/botonComa"/>
         <Button
             android:layout_width="wrap_content"
@@ -315,7 +334,8 @@
             android:fontFamily="sans-serif-black"
             android:backgroundTint="@color/orange"
             android:layout_weight="1"
-            android:layout_marginTop="10dp"
+            android:textSize="20sp"
+            android:layout_marginTop="20dp"
             android:id="@+id/botonIgual"/>
 
     </LinearLayout>

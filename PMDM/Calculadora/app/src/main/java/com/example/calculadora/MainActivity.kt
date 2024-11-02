@@ -168,7 +168,6 @@ class MainActivity : AppCompatActivity(), OnClickListener {
                     }else{
                         bufferHistorial = resultado + " " + operando
                     }
-                    bufferEntrada = ""
                     binding.textoOperaciones.text = bufferHistorial
                 }
             }
@@ -223,6 +222,7 @@ class MainActivity : AppCompatActivity(), OnClickListener {
                         }
                         "%"->{
                             resultado=porcentaje(numero1!!).toString()
+                            bufferEntrada=""
                         }
                     }
 
