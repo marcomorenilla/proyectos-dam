@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<expansion>
+    <item origen1 = "expansion.com">
+        <title origen2 = "expansion2.com">
+            El Ibex choca con los 12.000 puntos y se desmarca de las alzas en Europa
+        </title>
+        <description>
+            El Ibex se ha desmarcado de las importantes subidas en Europa, con una caída del 0,77% en una jornada marcada por el anuncio de un nuevo recorte de tipos por parte del BCE, que sin embargo no ha dado pistas sobre sus próximos movimientos. El selectivo español partirá mañana desde los 11.904,50 puntos
+        </description>
+        <dc:creator>
+            Alejandro Sánchez / M. de la Cruz
+        </dc:creator>
+    </item>
+    <item>
+        <title origen = "expansionT.com">
+            El Ibex
+        </title>
+        <description>
+            El Ibex </description>
+        <dc:creator>
+            Alejandro Sánchez / M. de la Cruz
+        </dc:creator>
+    </item>
+</expansion>
+

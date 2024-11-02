@@ -1,0 +1,11 @@
+{
+    "nombre": "Titulos 24/25",
+    "participantes": 
+            [{
+            "nombre": "Karim Benzema",
+            "edad": 32
+        }, {
+            "nombre": "Edson Arantes",
+            "edad": 87
+        }]
+}

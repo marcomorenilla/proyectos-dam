@@ -1,9 +1,9 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  */
-package com.marco.ejercicioxml;
+package com.marco.ejercicioxmljson;
 
-import com.marco.ejercicioxml.controllers.XMLController;
+import com.marco.ejercicioxmljson.controllers.XMLController;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,9 +11,9 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
-import com.marco.models.Carrera;
-import com.marco.models.Ciclista;
-import com.marco.models.Etapa;
+import com.marco.ejercicioxmljson.models.Carrera;
+import com.marco.ejercicioxmljson.models.Ciclista;
+import com.marco.ejercicioxmljson.models.Etapa;
 import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
 
@@ -21,7 +21,7 @@ import org.xml.sax.SAXException;
  *
  * @author Marco
  */
-public class EjercicioXML {
+public class EjercicioXMLJSON {
 
     public static void main(String[] args) {
 
@@ -51,20 +51,20 @@ public class EjercicioXML {
 //        try {
 //            xml.XMLWriteDoc(carrera, "LaVuelta.xml");
 //        } catch (ParserConfigurationException ex) {
-//            Logger.getLogger(EjercicioXML.class.getName()).log(Level.SEVERE, null, ex);
+//            Logger.getLogger(EjercicioXMLJSON.class.getName()).log(Level.SEVERE, null, ex);
 //        } catch (TransformerException ex) {
-//            Logger.getLogger(EjercicioXML.class.getName()).log(Level.SEVERE, null, ex);
+//            Logger.getLogger(EjercicioXMLJSON.class.getName()).log(Level.SEVERE, null, ex);
 //        }
 
 
         try {
             xml.XMLReadDoc("LaVuelta.xml");
         } catch (SAXException ex) {
-            Logger.getLogger(EjercicioXML.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(EjercicioXMLJSON.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
-            Logger.getLogger(EjercicioXML.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(EjercicioXMLJSON.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ParserConfigurationException ex) {
-            Logger.getLogger(EjercicioXML.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(EjercicioXMLJSON.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }

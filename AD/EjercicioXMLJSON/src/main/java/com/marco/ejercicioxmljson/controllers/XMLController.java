@@ -2,9 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.marco.ejercicioxml.controllers;
+package com.marco.ejercicioxmljson.controllers;
 
-import com.marco.models.Carrera;
+import com.marco.ejercicioxmljson.models.Carrera;
 import java.io.File;
 import java.io.IOException;
 import javax.xml.parsers.DocumentBuilder;
@@ -130,41 +130,41 @@ public class XMLController {
 
         //Recorrer la lista convirtiendo de nodelist a nodo
         for (int i = 0; i < nlEtapas.getLength(); i++) {
-            Node nodeElement = nlEtapas.item(i);
+            System.out.println("");
 
-            //check node
-            if (nodeElement.getNodeType() == Node.ELEMENT_NODE) {
+            Element elementEtapas = (Element) nlEtapas.item(i);
 
-                //Empezamos a procesar
-                //Hacemos cast
-                Element elEtapas = (Element) nodeElement;
-                String numero = elEtapas.getAttribute("numero");
-                System.out.println("Número de etapa "+ numero);
+            String numero = elementEtapas.getAttribute("numero");
+            System.out.println("Número de etapa " + numero);
+            System.out.println("_____________________________");
+            
+            
+            NodeList nlPodio = elementEtapas.getElementsByTagName("podio");
+            
+            Element elementPodio = (Element) nlPodio.item(0);
+            String atrPodio = elementPodio.getAttribute("fecha");
+            System.out.println("Fecha podio: "+atrPodio);
+            System.out.println("_____________________________ \n");
+            
+            NodeList nlCiclistas = elementPodio.getElementsByTagName("ciclista");
+            
+            for (int j = 0; j < nlCiclistas.getLength(); j++) {
+                Element elementCiclista = (Element) nlCiclistas.item(j);
                 
-                Node nlPodio = elEtapas.getFirstChild();
-                
-                NodeList nlCiclistas = nlPodio.getChildNodes();
-                
-                for (int j = 0; j < nlCiclistas.getLength(); j++) {
-                    Element ciclista = (Element) nlCiclistas.item(j);
-                    
-                    String nombre = ciclista.getElementsByTagName("nombre").item(0).getTextContent();
-                    System.out.println("Nombre de ciclista " + nombre);
-                    
-                }
-                
-               /* NodeList nlCiclistas =  elPodio.getElementsByTagName("ciclista");
-                
-                for (int j = 0; j < nlCiclistas.getLength(); j++) {
-                    Element elCiclista = (Element) nlCiclistas.item(j);
-                    
-                    String nombre = elCiclista.getElementsByTagName("nombre").item(0).getTextContent();
-                    System.out.println("Nombre del ciclista "+ (j+1) + nombre);
-                }*/
-               
-
+                String nombreCiclista = elementCiclista.getElementsByTagName("nombre").item(0).getTextContent();
+                System.out.println("nombre ciclista:  " + nombreCiclista);
+                int atrCiclista = Integer.parseInt(elementCiclista.getAttribute("posicion"));
+                System.out.println("posición ciclista: "+ atrCiclista);
+                String equipo = elementCiclista.getElementsByTagName("equipo").item(0).getTextContent();
+                System.out.println("equipo ciclista: "+equipo);
+                String tiempo = elementCiclista.getElementsByTagName("tiempo").item(0).getTextContent();
+                System.out.println("tiempo ciclista: "+tiempo);
+                System.out.println("__________________________________________");
+                        
             }
-        }
+            
 
+        }
     }
+
 }

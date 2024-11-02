@@ -1,0 +1,14 @@
+{
+    "nombre": "Títulos 24/25",
+    "participantes": 
+    [
+        {
+            "nombre": "Dioni Villalba",
+            "edad": 39
+        },      
+        {
+            "nombre": "Juninho Pernambucano",
+            "edad": 49
+        }
+    ]
+}

@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <vueltaEspana>
     <etapas numero="1">
-        <podio>
-            <ciclista>
+        <podio fecha="2024/11/01">
+            <ciclista posicion="1">
                 <nombre>Marco</nombre>
                 <equipo>Kern Pharma</equipo>
                 <tiempo>04:15:20</tiempo>
             </ciclista>
-            <ciclista>
+            <ciclista posicion="2">
                 <nombre>Tadej Pogacar</nombre>
                 <equipo>UAE</equipo>
                 <tiempo>04:16:30</tiempo>
             </ciclista>
-            <ciclista>
+            <ciclista posicion="3">
                 <nombre>Jonas Vingegard</nombre>
                 <equipo>Jumbo Visma</equipo>
                 <tiempo>04:17:30</tiempo>
@@ -20,18 +20,18 @@
         </podio>
     </etapas>
     <etapas numero="2">
-        <podio>
-            <ciclista>
+        <podio fecha="2024/11/02">
+            <ciclista posicion="1">
                 <nombre>Marco</nombre>
                 <equipo>Kern Pharma</equipo>
                 <tiempo>04:15:20</tiempo>
             </ciclista>
-            <ciclista>
+            <ciclista posicion="2">
                 <nombre>Jonas Vingegard</nombre>
                 <equipo>Jumbo Visma</equipo>
                 <tiempo>04:17:30</tiempo>
             </ciclista>
-            <ciclista>
+            <ciclista posicion="3">
                 <nombre>Tadej Pogacar</nombre>
                 <equipo>UAE</equipo>
                 <tiempo>04:16:30</tiempo>
