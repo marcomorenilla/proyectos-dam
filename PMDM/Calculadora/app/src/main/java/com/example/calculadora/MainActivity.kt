@@ -169,6 +169,7 @@ class MainActivity : AppCompatActivity(), OnClickListener {
                         bufferHistorial = resultado + " " + operando
                     }
                     binding.textoOperaciones.text = bufferHistorial
+
                 }
             }
             binding.botonBorrar.id->{
@@ -200,7 +201,7 @@ class MainActivity : AppCompatActivity(), OnClickListener {
                 }
                 bufferHistorial = ""
                 binding.textoOperaciones.text = bufferHistorial
-                numero1=null
+                numero1=bufferEntrada
 
             }
             binding.botonIgual.id->{
