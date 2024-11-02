@@ -106,7 +106,7 @@ class MainActivity : AppCompatActivity(), OnClickListener {
                 binding.textoResultado.text = bufferEntrada
             }
             binding.botonSuma.id->{
-                if (operando==null){
+                /*if (operando==null){
                     operando="+"
                     if (numero1==null){
                         numero1 = bufferEntrada
@@ -116,10 +116,11 @@ class MainActivity : AppCompatActivity(), OnClickListener {
                     }
                     bufferEntrada = ""
                     binding.textoOperaciones.text = bufferHistorial
-                }
+                }*/
+                procesarOperando("+")
             }
             binding.botonResta.id->{
-                if (operando==null) {
+                /*if (operando==null) {
                     operando="-"
                     if (numero1==null){
                         numero1 = bufferEntrada
@@ -129,10 +130,11 @@ class MainActivity : AppCompatActivity(), OnClickListener {
                     }
                     bufferEntrada = ""
                     binding.textoOperaciones.text = bufferHistorial
-                }
+                }*/
+                procesarOperando("-")
             }
             binding.botonMultiplicar.id->{
-                if (operando==null){
+                /*if (operando==null){
                     operando="x"
                     if (numero1==null){
                         numero1 = bufferEntrada
@@ -142,11 +144,12 @@ class MainActivity : AppCompatActivity(), OnClickListener {
                     }
                     bufferEntrada = ""
                     binding.textoOperaciones.text = bufferHistorial
-                }
+                }*/
+                procesarOperando("x")
 
             }
             binding.botonDividir.id->{
-                if(operando==null){
+                /*if(operando==null){
                     operando="/"
                     if (numero1==null){
                         numero1 = bufferEntrada
@@ -156,11 +159,12 @@ class MainActivity : AppCompatActivity(), OnClickListener {
                     }
                     bufferEntrada = ""
                     binding.textoOperaciones.text = bufferHistorial
-                }
+                }*/
+                procesarOperando("/")
 
             }
             binding.botonPorcentaje.id->{
-                if(operando==null){
+               /* if(operando==null){
                     operando="%"
                     if (numero1==null){
                         numero1 = bufferEntrada
@@ -170,7 +174,9 @@ class MainActivity : AppCompatActivity(), OnClickListener {
                     }
                     binding.textoOperaciones.text = bufferHistorial
 
-                }
+                }*/
+                procesarOperando("%")
+                numero2="0"
             }
             binding.botonBorrar.id->{
                 bufferEntrada = ""
@@ -208,6 +214,7 @@ class MainActivity : AppCompatActivity(), OnClickListener {
                 if (numero1!=null && !bufferEntrada.equals("")){
                     numero1 = numero1!!.replace(",",".")
                     numero2 = bufferEntrada.replace(",",".")
+                    bufferHistorial = binding.textoOperaciones.text.toString()
                     when(operando){
                         "+"->{
                             resultado = sumar(numero1!!,numero2!!).toString()
@@ -233,8 +240,7 @@ class MainActivity : AppCompatActivity(), OnClickListener {
                         resultado = resultado!!.replace(".",",")
                     }
                     binding.textoResultado.text = resultado
-                    bufferHistorial += " " + bufferEntrada+ " = " + resultado
-                    binding.textoOperaciones.text = bufferHistorial
+                    binding.textoOperaciones.text = bufferHistorial + " "+ bufferEntrada+" = " + resultado
                     numero1=resultado
                     bufferEntrada=""
                     operando=null
@@ -269,5 +275,17 @@ class MainActivity : AppCompatActivity(), OnClickListener {
         var resultado:Double?=null
         resultado = operandoUno.toDouble() / 100.0
         return resultado?:0.0
+    }
+
+    fun procesarOperando(operando:String){
+        if (this.operando==null){
+            this.operando=operando
+            if (numero1==null){
+                numero1 = bufferEntrada
+            }
+
+        }
+        binding.textoOperaciones.text = bufferEntrada + " " + operando
+        bufferEntrada = ""
     }
 }
