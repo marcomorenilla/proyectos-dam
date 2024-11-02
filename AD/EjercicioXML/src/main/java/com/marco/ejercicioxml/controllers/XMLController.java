@@ -4,7 +4,7 @@
  */
 package com.marco.ejercicioxml.controllers;
 
-import models.Carrera;
+import com.marco.models.Carrera;
 import java.io.File;
 import java.io.IOException;
 import javax.xml.parsers.DocumentBuilder;
@@ -118,7 +118,7 @@ public class XMLController {
     }
 
     //Método para leer el documento XML
-    public void XMLReadDoc(String path, String item) throws SAXException, IOException, ParserConfigurationException {
+    public void XMLReadDoc(String path) throws SAXException, IOException, ParserConfigurationException {
         //Parseamos el archivo con el método parse creado en la clase
         Document doc = XMLParseDoc(path);
 
@@ -126,22 +126,42 @@ public class XMLController {
         doc.getDocumentElement().normalize();
 
         //Creamos una nodeList de etapas
-        NodeList nlElement = doc.getElementsByTagName(item);
+        NodeList nlEtapas = doc.getElementsByTagName("etapas");
 
         //Recorrer la lista convirtiendo de nodelist a nodo
-        for (int i = 0; i < nlElement.getLength(); i++) {
-            Node nodeElement = nlElement.item(i);
+        for (int i = 0; i < nlEtapas.getLength(); i++) {
+            Node nodeElement = nlEtapas.item(i);
 
             //check node
             if (nodeElement.getNodeType() == Node.ELEMENT_NODE) {
 
                 //Empezamos a procesar
                 //Hacemos cast
-                Element element = (Element) nodeElement;
-
-                System.out.println(element.getElementsByTagName("nombre").item(0).getTextContent());
-                System.out.println(element.getElementsByTagName("equipo").item(0).getTextContent());
-                System.out.println(element.getElementsByTagName("tiempo").item(0).getTextContent());
+                Element elEtapas = (Element) nodeElement;
+                String numero = elEtapas.getAttribute("numero");
+                System.out.println("Número de etapa "+ numero);
+                
+                Node nlPodio = elEtapas.getFirstChild();
+                
+                NodeList nlCiclistas = nlPodio.getChildNodes();
+                
+                for (int j = 0; j < nlCiclistas.getLength(); j++) {
+                    Element ciclista = (Element) nlCiclistas.item(j);
+                    
+                    String nombre = ciclista.getElementsByTagName("nombre").item(0).getTextContent();
+                    System.out.println("Nombre de ciclista " + nombre);
+                    
+                }
+                
+               /* NodeList nlCiclistas =  elPodio.getElementsByTagName("ciclista");
+                
+                for (int j = 0; j < nlCiclistas.getLength(); j++) {
+                    Element elCiclista = (Element) nlCiclistas.item(j);
+                    
+                    String nombre = elCiclista.getElementsByTagName("nombre").item(0).getTextContent();
+                    System.out.println("Nombre del ciclista "+ (j+1) + nombre);
+                }*/
+               
 
             }
         }

@@ -11,9 +11,9 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
-import models.Carrera;
-import models.Ciclista;
-import models.Etapa;
+import com.marco.models.Carrera;
+import com.marco.models.Ciclista;
+import com.marco.models.Etapa;
 import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
 
@@ -58,7 +58,7 @@ public class EjercicioXML {
 
 
         try {
-            xml.XMLReadDoc("LaVuelta.xml", "ciclista");
+            xml.XMLReadDoc("LaVuelta.xml");
         } catch (SAXException ex) {
             Logger.getLogger(EjercicioXML.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
