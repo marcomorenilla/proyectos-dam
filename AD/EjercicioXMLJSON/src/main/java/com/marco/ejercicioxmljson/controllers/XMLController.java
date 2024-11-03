@@ -4,9 +4,15 @@
  */
 package com.marco.ejercicioxmljson.controllers;
 
+import com.marco.ejercicioxmljson.EjercicioXMLJSON;
 import com.marco.ejercicioxmljson.models.Carrera;
+import com.marco.ejercicioxmljson.models.Ciclista;
+import com.marco.ejercicioxmljson.models.Etapa;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -117,54 +123,88 @@ public class XMLController {
 
     }
 
-    //Método para leer el documento XML
-    public void XMLReadDoc(String path) throws SAXException, IOException, ParserConfigurationException {
-        //Parseamos el archivo con el método parse creado en la clase
-        Document doc = XMLParseDoc(path);
+    //Método para leer el documento XML gestionamos excepciones para poder crear objeto en el main
+    public Carrera XMLReadDoc(String path) {
+        Carrera carrera = null;
 
-        //Primero normalizar
-        doc.getDocumentElement().normalize();
+        try {
+            //Parseamos el archivo con el método parse creado en la clase
+            Document doc = XMLParseDoc(path);
 
-        //Creamos una nodeList de etapas
-        NodeList nlEtapas = doc.getElementsByTagName("etapas");
+            //Primero normalizar
+            doc.getDocumentElement().normalize();
 
-        //Recorrer la lista convirtiendo de nodelist a nodo
-        for (int i = 0; i < nlEtapas.getLength(); i++) {
-            System.out.println("");
+            //Sacamos el nombre de la carrera del archivo
+            Element root = doc.getDocumentElement();
+            String nombreCarrera = root.getTagName();
 
-            Element elementEtapas = (Element) nlEtapas.item(i);
+            System.out.println("El nombre de la carrera es:  " + nombreCarrera);
 
-            String numero = elementEtapas.getAttribute("numero");
-            System.out.println("Número de etapa " + numero);
-            System.out.println("_____________________________");
-            
-            
-            NodeList nlPodio = elementEtapas.getElementsByTagName("podio");
-            
-            Element elementPodio = (Element) nlPodio.item(0);
-            String atrPodio = elementPodio.getAttribute("fecha");
-            System.out.println("Fecha podio: "+atrPodio);
-            System.out.println("_____________________________ \n");
-            
-            NodeList nlCiclistas = elementPodio.getElementsByTagName("ciclista");
-            
-            for (int j = 0; j < nlCiclistas.getLength(); j++) {
-                Element elementCiclista = (Element) nlCiclistas.item(j);
+            //Creamos Carrera que es el objeto que devolveremos para hacer CRUD
+            carrera = new Carrera(nombreCarrera);
+
+            //Creamos una nodeList de etapas
+            NodeList nlEtapas = doc.getElementsByTagName("etapas");
+
+            //Recorrer la lista convirtiendo de nodelist a nodo
+            for (int i = 0; i < nlEtapas.getLength(); i++) {
+
+                //Creamos etapa con constructor por defecto para ir añadiendo a la carrera
+                Etapa etapa = new Etapa();
+                System.out.println("");
+
+                Element elementEtapas = (Element) nlEtapas.item(i);
+
+                String numero = elementEtapas.getAttribute("numero");
+                System.out.println("Número de etapa " + numero);
+                System.out.println("_____________________________");
+
+                //Añadimos número a la etapa
+                etapa.setNumero(Integer.parseInt(numero));
+
+                NodeList nlPodio = elementEtapas.getElementsByTagName("podio");
+
+                Element elementPodio = (Element) nlPodio.item(0);
+                String atrPodio = elementPodio.getAttribute("fecha");
+                System.out.println("Fecha podio: " + atrPodio);
+                System.out.println("_____________________________ \n");
                 
-                String nombreCiclista = elementCiclista.getElementsByTagName("nombre").item(0).getTextContent();
-                System.out.println("nombre ciclista:  " + nombreCiclista);
-                int atrCiclista = Integer.parseInt(elementCiclista.getAttribute("posicion"));
-                System.out.println("posición ciclista: "+ atrCiclista);
-                String equipo = elementCiclista.getElementsByTagName("equipo").item(0).getTextContent();
-                System.out.println("equipo ciclista: "+equipo);
-                String tiempo = elementCiclista.getElementsByTagName("tiempo").item(0).getTextContent();
-                System.out.println("tiempo ciclista: "+tiempo);
-                System.out.println("__________________________________________");
-                        
+                //Añadimos fecha a la etapa recuperando a través de atributo del podio
+                etapa.setFecha(atrPodio);
+
+                NodeList nlCiclistas = elementPodio.getElementsByTagName("ciclista");
+
+                for (int j = 0; j < nlCiclistas.getLength(); j++) {
+                    Element elementCiclista = (Element) nlCiclistas.item(j);
+
+                    String nombreCiclista = elementCiclista.getElementsByTagName("nombre").item(0).getTextContent();
+                    System.out.println("nombre ciclista:  " + nombreCiclista);
+                    int atrCiclista = Integer.parseInt(elementCiclista.getAttribute("posicion"));
+                    System.out.println("posición ciclista: " + atrCiclista);
+                    String equipo = elementCiclista.getElementsByTagName("equipo").item(0).getTextContent();
+                    System.out.println("equipo ciclista: " + equipo);
+                    String tiempo = elementCiclista.getElementsByTagName("tiempo").item(0).getTextContent();
+                    System.out.println("tiempo ciclista: " + tiempo);
+                    System.out.println("__________________________________________");
+
+                    //Creamos ciclista con los datos del XML
+                    Ciclista ciclista = new Ciclista(atrCiclista, nombreCiclista, equipo, tiempo);
+
+                    //Añadimos ciclista al podio
+                    etapa.addCiclista(ciclista);
+                }
+
+                //Añadimos etapa a la carrera
+                carrera.addEtapa(etapa);
             }
-            
-
+        } catch (SAXException ex) {
+            Logger.getLogger(EjercicioXMLJSON.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(EjercicioXMLJSON.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ParserConfigurationException ex) {
+            Logger.getLogger(EjercicioXMLJSON.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }
 
+        return carrera;
+    }
 }

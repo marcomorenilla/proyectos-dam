@@ -16,10 +16,24 @@ public class Etapa {
     //Atributos
     private int numero;
     private List<Ciclista> podio;
+    private String fecha;
+
+    public String getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
+    }
     
     //Constructor
     public Etapa(int numero){
         this.numero=numero;
+        podio = new ArrayList<Ciclista>();
+    }
+    
+    //Constructor por defecto
+    public Etapa(){
         podio = new ArrayList<Ciclista>();
     }
     

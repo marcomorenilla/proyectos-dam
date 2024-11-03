@@ -46,7 +46,7 @@ public class LecturaXML_BK3 {
             //Casting de nodo a elemento
             
             Element menu = (Element) nlMenu.item(i);
-            //Empezamos a sacar ticket
+            //Empezamos a sacar el pedido
             System.out.println("--------------------");
             String tipoMenu =  menu.getAttribute("desc");
             System.out.println("desc: "+tipoMenu);

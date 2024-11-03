@@ -3,6 +3,7 @@
  */
 package com.marco.ejercicioxmljson;
 
+import com.marco.ejercicioxmljson.controllers.JSONController;
 import com.marco.ejercicioxmljson.controllers.XMLController;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -26,6 +27,8 @@ public class EjercicioXMLJSON {
     public static void main(String[] args) {
 
         XMLController xml = new XMLController();
+        /*Datos creados para escribir el documento:
+        
         Ciclista ciclista = new Ciclista(1, "Marco", "Kern Pharma", "04:15:20");
         Ciclista ciclista2 = new Ciclista(2, "Tadej Pogacar", "UAE", "04:16:30");
         Ciclista ciclista3 = new Ciclista(3, "Jonas Vingegard", "Jumbo Visma", "04:17:30");
@@ -45,25 +48,34 @@ public class EjercicioXMLJSON {
         carrera.addEtapa(etapa);
         carrera.addEtapa(etapa2);
 
-        //        System.out.println("Podio de la primera etapa de: "+ carrera.getNombre());
-//        carrera.getEtapas().get(0).mostrarPodio();
-//        
-//        try {
-//            xml.XMLWriteDoc(carrera, "LaVuelta.xml");
-//        } catch (ParserConfigurationException ex) {
-//            Logger.getLogger(EjercicioXMLJSON.class.getName()).log(Level.SEVERE, null, ex);
-//        } catch (TransformerException ex) {
-//            Logger.getLogger(EjercicioXMLJSON.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-
-
+        System.out.println("Podio de la primera etapa de: "+ carrera.getNombre());
+        carrera.getEtapas().get(0).mostrarPodio();
+        
+        // Escritura del documento
         try {
-            xml.XMLReadDoc("LaVuelta.xml");
-        } catch (SAXException ex) {
-            Logger.getLogger(EjercicioXMLJSON.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(EjercicioXMLJSON.class.getName()).log(Level.SEVERE, null, ex);
+            xml.XMLWriteDoc(carrera, "LaVuelta.xml");
         } catch (ParserConfigurationException ex) {
+            Logger.getLogger(EjercicioXMLJSON.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (TransformerException ex) {
+            Logger.getLogger(EjercicioXMLJSON.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+         */
+
+        //Recuperación de objetos del documento y mostrar por pantalla
+        Carrera carreraRec = xml.XMLReadDoc("LaVuelta.xml");
+        for (Etapa etapaRec : carreraRec.getEtapas()) {
+            System.out.println("Podio de la etapa " + etapaRec.getNumero() + ":");
+            for (Ciclista ciclistaRec : etapaRec.getPodio()) {
+                System.out.println(ciclistaRec);
+            }
+        }
+        
+        //Escritura de JSON de carreraRec
+        JSONController json = new JSONController();
+        try {
+            json.JSONwriter(carreraRec);
+        } catch (IOException ex) {
             Logger.getLogger(EjercicioXMLJSON.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
