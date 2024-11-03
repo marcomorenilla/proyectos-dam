@@ -1,4 +1,23 @@
-{"Nombre":"vueltaEspana",
-    "Etapas":[{"Número":1,"Fecha":"2024/11/01"},
-              {"Número":2,"Fecha":"2024/11/02"}]
+{
+    "Nombre": "vueltaEspana",
+    "Etapas": [
+        {
+            "Número": 1,
+            "Fecha": "2024/11/01",
+            "Ciclistas: ": [
+                {"Nombre": "Marco"},
+                {"Nombre": "Tadej Pogacar"},
+                {"Nombre": "Jonas Vingegard"}
+            ]
+        },
+        {
+            "Número": 2,
+            "Fecha": "2024/11/02",
+            "Ciclistas: ": [
+                {"Nombre": "Marco"},
+                {"Nombre": "Jonas Vingegard"},
+                {"Nombre": "Tadej Pogacar"}
+            ]
+        }
+    ]
 }
