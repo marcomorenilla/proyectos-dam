@@ -14,7 +14,10 @@ class GameActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityGameBinding.inflate(layoutInflater)
         setContentView(binding.root)
+    }
 
+    fun random():Int{
 
+        return 0
     }
 }

@@ -30,13 +30,24 @@ class MainActivity : AppCompatActivity(), OnClickListener {
     override fun onClick(v: View?) {
         when(v?.id){
             binding.logButton.id->{
-                val intent:Intent = Intent(applicationContext,GameActivity::class.java)
-                Snackbar.make(binding.root,"Bienvenido al juego ${binding.userLogEdit.text}, pulsa jugar para empezar",Snackbar.LENGTH_LONG)
-                    .setAction("Jugar"){
-                        startActivity(intent)
-                    }
-                    .show()
 
+                if(binding.userLogEdit.text.isNotEmpty()) {
+                    val intent: Intent = Intent(applicationContext, GameActivity::class.java)
+                    Snackbar.make(
+                        binding.root,
+                        "Bienvenido al juego ${binding.userLogEdit.text}, pulsa jugar para empezar",
+                        Snackbar.LENGTH_LONG
+                    )
+                        .setAction("Jugar") {
+                            startActivity(intent)
+                        }
+                        .show()
+                } else{
+                    Snackbar.make(binding.root, "Faltan datos", Snackbar.LENGTH_SHORT).show();
+                }
+            }
+            binding.clearButton.id->{
+                binding.userLogEdit.text.clear()
             }
         }
     }
