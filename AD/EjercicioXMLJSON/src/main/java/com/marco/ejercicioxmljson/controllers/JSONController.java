@@ -62,10 +62,10 @@ public class JSONController {
         System.out.println(jsonCarrera.toString(4));
        
         //Escritura del JSON
-        FileWriter fw = new FileWriter(new File("vuelta.JSON"));
+        /*FileWriter fw = new FileWriter(new File("vuelta.JSON"));
         fw.write(jsonCarrera.toString(4));
-        fw.close();
-        //Files.write(Paths.get("vuelta.JSON"), jsonCarrera.toString().getBytes());
+        fw.close();*/
+        Files.write(Paths.get("vuelta.JSON"), jsonCarrera.toString(4).getBytes());
     }
 
 }
