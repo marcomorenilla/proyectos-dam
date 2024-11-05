@@ -6,6 +6,7 @@ import android.view.View
 import android.view.View.OnClickListener
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.os.BundleCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.adivinacartas.databinding.ActivityMainBinding
@@ -23,7 +24,7 @@ class MainActivity : AppCompatActivity(), OnClickListener {
 
         //Añadir escuchas a botones
         binding.logButton.setOnClickListener(this)
-        binding.clearButton.setOnClickListener(this)
+
 
     }
 
@@ -33,6 +34,9 @@ class MainActivity : AppCompatActivity(), OnClickListener {
 
                 if(binding.userLogEdit.text.isNotEmpty()) {
                     val intent: Intent = Intent(applicationContext, GameActivity::class.java)
+                    val bundle: Bundle = Bundle()
+                    bundle.putString("nombre",binding.userLogEdit.text.toString())
+                    intent.putExtra("bundle",bundle)
                     Snackbar.make(
                         binding.root,
                         "Bienvenido al juego ${binding.userLogEdit.text}, pulsa jugar para empezar",
@@ -45,9 +49,6 @@ class MainActivity : AppCompatActivity(), OnClickListener {
                 } else{
                     Snackbar.make(binding.root, "Faltan datos", Snackbar.LENGTH_SHORT).show();
                 }
-            }
-            binding.clearButton.id->{
-                binding.userLogEdit.text.clear()
             }
         }
     }
