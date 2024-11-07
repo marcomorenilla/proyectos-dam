@@ -28,6 +28,13 @@ class MainActivity : AppCompatActivity(), OnClickListener {
         binding=ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        numero1 = savedInstanceState?.getString("numero1")?: null
+        bufferEntrada = savedInstanceState?.getString("bufferEntrada")?:""
+        operando = savedInstanceState?.getString("operando")?:null
+        binding.textoOperaciones.text = savedInstanceState?.getString("textoOperaciones")?:""
+        binding.textoResultado.text = savedInstanceState?.getString("textoResultado")?: "0"
+
+
         //Listeners
         binding.botonPorcentaje.setOnClickListener(this)
         binding.botonBorrar.setOnClickListener(this)
@@ -53,6 +60,14 @@ class MainActivity : AppCompatActivity(), OnClickListener {
 
     }
 
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putString("numero1",numero1)
+        outState.putString("bufferEntrada",bufferEntrada)
+        outState.putString("textoOperaciones",binding.textoOperaciones.text.toString())
+        outState.putString("textoResultado",binding.textoResultado.text.toString())
+        outState.putString("operando",operando)
+    }
 
     override fun onClick(v: View?) {
         when(v?.id){
