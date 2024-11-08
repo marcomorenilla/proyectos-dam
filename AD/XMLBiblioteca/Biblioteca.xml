@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/XML/XMLDocument.xml to edit this template
+-->
+
+<!--si te apetece practicar lectura xml, te voy a pasar este ejercicio porq no lo he conseguido sacar:-->
+
+<?xml version="1.0" encoding="UTF-8"?>
+<Biblioteca>
+    <Libros>
+        <Libro id="1" idioma="es">
+            <Titulo>El Quijote</Titulo>
+            <Autor>1</Autor>
+            <Genero>Aventura</Genero>
+            <Publicacion>
+                <Fecha>1605</Fecha>
+                <Editorial>Juan de la Cuesta</Editorial>
+                <Edicion>1</Edicion>
+            </Publicacion>
+            <Disponible>true</Disponible>
+        </Libro>
+        <Libro id="2" idioma="en">
+            <Titulo>1984</Titulo>
+            <Autor>2</Autor>
+            <Genero>Distopía</Genero>
+            <Publicacion>
+                <Fecha>1949</Fecha>
+                <Editorial>Secker y Warburg</Editorial>
+                <Edicion>1</Edicion>
+            </Publicacion>
+            <Disponible>false</Disponible>
+        </Libro>
+    </Libros>
+
+    <Autores>
+        <Autor id="1">
+            <Nombre>Miguel de Cervantes</Nombre>
+            <Nacionalidad>Española</Nacionalidad>
+        </Autor>
+        <Autor id="2">
+            <Nombre>George Orwell</Nombre>
+            <Nacionalidad>Británica</Nacionalidad>
+        </Autor>
+    </Autores>
+
+    <Prestamos>
+        <Prestamo id="1001">
+            <LibroID>1</LibroID>
+            <PrestamistaID sexo="H">201</PrestamistaID>
+        </Prestamo>
+        <Prestamo id="1002">
+            <LibroID>2</LibroID>
+            <PrestamistaID>202</PrestamistaID>
+        </Prestamo>
+    </Prestamos>
+
+    <Prestamistas>
+        <Prestamista id="201">
+            <Nombre>Juan Pérez</Nombre>
+            <Telefono>+34 123 456 789</Telefono>
+            <Email>juan.perez@example.com</Email>
+        </Prestamista>
+        <Prestamista id="202">
+            <Nombre>María García</Nombre>
+            <Telefono>+34 987 654 321</Telefono>
+        </Prestamista>
+    </Prestamistas>
+</Biblioteca>
+
+
