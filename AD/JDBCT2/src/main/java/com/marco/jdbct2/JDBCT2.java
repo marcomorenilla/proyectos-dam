@@ -12,6 +12,7 @@ import java.sql.Statement;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import utils.StringUtil;
 
 /**
  *
@@ -19,27 +20,7 @@ import java.util.logging.Logger;
  */
 public class JDBCT2 {
 
-    //Constantes de conexión
-
-    /**
-     * Url de conexión
-     */
-    public static final String URL = System.getenv("DOCKER_AD_URL");
-
-    /**
-     *Usuario de conexión
-     */
-    public static final String USER = System.getenv("DOCKER_AD_USER");
-
-    /**
-     *Password de conexión
-     */
-    public static final String PASS = System.getenv("DOCKER_AD_PASS");
-
-    /**
-     *
-     * @param args
-     */
+    
     public static void main(String[] args) {
         System.out.println("Bienvenido!");
         Scanner scn = new Scanner(System.in);
@@ -55,7 +36,7 @@ public class JDBCT2 {
         System.out.println("");
 
         //Conexión y lógica del programa en el main
-        try (Connection con = DriverManager.getConnection(URL, USER, PASS);) {
+        try (Connection con = DriverManager.getConnection(StringUtil.URL, StringUtil.USER, StringUtil.PASS);) {
 
             System.out.println("Mostrando datos...");
             System.out.println("");
