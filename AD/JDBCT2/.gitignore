@@ -9,6 +9,7 @@
 /nbdist/
 /.nb-gradle/
 /target/*
+/src/main/java/utils/*
 
 # Compiled class files
 *.class
