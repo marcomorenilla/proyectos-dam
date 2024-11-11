@@ -19,27 +19,25 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/editAltura"
+    <TextView
+        android:id="@+id/textAltura"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:text="Introduce tu altura..."
         android:layout_marginTop="30dp"
-        android:hint="Introduce tu altura..."
-        android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
-    <EditText
-        android:id="@+id/editPeso"
+    <TextView
+        android:id="@+id/textPeso"
+        android:text="introduce tu peso..."
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:hint="Introduce tu peso..."
-        android:inputType="number"
-        app:layout_constraintEnd_toEndOf="@+id/editAltura"
-        app:layout_constraintStart_toStartOf="@+id/editAltura"
-        app:layout_constraintTop_toBottomOf="@+id/editAltura" />
+        app:layout_constraintEnd_toEndOf="@+id/textAltura"
+        app:layout_constraintStart_toStartOf="@+id/textAltura"
+        app:layout_constraintTop_toBottomOf="@+id/textAltura" />
 
     <RadioGroup
         android:id="@+id/radioGroup"
@@ -48,9 +46,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="@+id/editPeso"
-        app:layout_constraintStart_toStartOf="@+id/editPeso"
-        app:layout_constraintTop_toBottomOf="@+id/editPeso">
+        app:layout_constraintEnd_toEndOf="@+id/textPeso"
+        app:layout_constraintStart_toStartOf="@+id/textPeso"
+        app:layout_constraintTop_toBottomOf="@+id/textPeso">
 
         <RadioButton
             android:id="@+id/radioMasculino"
@@ -78,9 +76,32 @@
         app:layout_constraintStart_toStartOf="@+id/radioGroup"
         app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
 
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/textoCalculado"
+        android:gravity="center"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline"
+        app:layout_constraintStart_toStartOf="@+id/calcularBtn"
+        app:layout_constraintTop_toBottomOf="@+id/calcularBtn" />
 
+    <ImageView
+        android:id="@+id/imagenCalculada"
+        android:layout_width="0dp"
+        android:scaleType="centerCrop"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="@+id/calcularBtn"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/calcularBtn" />
 
-
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
