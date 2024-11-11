@@ -19,19 +19,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
+    <EditText
         android:id="@+id/textAltura"
+        android:enabled="false"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Introduce tu altura..."
+        android:hint="Introduce tu altura..."
         android:layout_marginTop="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
-    <TextView
+    <EditText
         android:id="@+id/textPeso"
-        android:text="introduce tu peso..."
+        android:enabled="false"
+        android:hint="introduce tu peso..."
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -40,7 +42,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textAltura" />
 
     <RadioGroup
-        android:id="@+id/radioGroup"
+        android:id="@+id/radioGroupResult"
         android:checkedButton="@id/radioMasculino"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -51,15 +53,17 @@
         app:layout_constraintTop_toBottomOf="@+id/textPeso">
 
         <RadioButton
-            android:id="@+id/radioMasculino"
+            android:id="@+id/radioMasculinoResult"
+            android:enabled="false"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Masculino" />
 
         <RadioButton
-            android:id="@+id/radioFemenino"
+            android:id="@+id/radioFemeninoResult"
             android:layout_width="wrap_content"
+            android:enabled="false"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Femenino" />
@@ -67,14 +71,14 @@
     </RadioGroup>
 
     <Button
-        android:id="@+id/calcularBtn"
+        android:id="@+id/volverBtn"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:text="Calcular"
-        app:layout_constraintEnd_toEndOf="@+id/radioGroup"
-        app:layout_constraintStart_toStartOf="@+id/radioGroup"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+        android:text="Volver"
+        app:layout_constraintEnd_toEndOf="@+id/radioGroupResult"
+        app:layout_constraintStart_toStartOf="@+id/radioGroupResult"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroupResult" />
 
     <TextView
         android:layout_width="0dp"
@@ -83,18 +87,19 @@
         android:gravity="center"
         android:layout_marginTop="20dp"
         app:layout_constraintEnd_toStartOf="@+id/guideline"
-        app:layout_constraintStart_toStartOf="@+id/calcularBtn"
-        app:layout_constraintTop_toBottomOf="@+id/calcularBtn" />
+        app:layout_constraintStart_toStartOf="@+id/volverBtn"
+        app:layout_constraintTop_toBottomOf="@+id/volverBtn" />
+
 
     <ImageView
         android:id="@+id/imagenCalculada"
-        android:layout_width="0dp"
+        android:layout_width="100dp"
         android:scaleType="centerCrop"
-        android:layout_height="wrap_content"
+        android:layout_height="100dp"
         android:layout_marginTop="20dp"
-        app:layout_constraintEnd_toEndOf="@+id/calcularBtn"
+        app:layout_constraintEnd_toEndOf="@+id/volverBtn"
         app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toBottomOf="@+id/calcularBtn" />
+        app:layout_constraintTop_toBottomOf="@+id/volverBtn" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
