@@ -24,7 +24,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:hint="Introduce tu altura..."
+        android:hint="Introduce tu altura en cm..."
         android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -36,7 +36,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:hint="Introduce tu peso..."
-        android:inputType="number"
+        android:inputType="numberDecimal"
         app:layout_constraintEnd_toEndOf="@+id/editAltura"
         app:layout_constraintStart_toStartOf="@+id/editAltura"
         app:layout_constraintTop_toBottomOf="@+id/editAltura" />

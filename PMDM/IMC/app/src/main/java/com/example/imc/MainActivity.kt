@@ -13,15 +13,11 @@ class MainActivity : AppCompatActivity(), OnClickListener, RadioGroup.OnCheckedC
 
     private lateinit var binding: ActivityMainBinding
 
-    private var peso: Double = 0.0
-    private var altura: Double = 0.0
-    private var sexo: Char = 'M'
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
 
         binding.radioGroup.setOnCheckedChangeListener(this)
         binding.calcularBtn.setOnClickListener(this)
@@ -30,24 +26,25 @@ class MainActivity : AppCompatActivity(), OnClickListener, RadioGroup.OnCheckedC
     }
 
     override fun onClick(v: View?) {
-        val intent:Intent=Intent(applicationContext,ResultadoActivity::class.java)
-        val bundle:Bundle = Bundle()
+        val intent: Intent = Intent(applicationContext, ResultadoActivity::class.java)
+        val bundle: Bundle = Bundle()
+        val peso: Double = binding.editPeso.text.toString().toDouble()
+        val altura: Double = binding.editAltura.text.toString().toDouble()
+        val sexo: Int = binding.radioGroup.checkedRadioButtonId
         when (v?.id) {
             binding.calcularBtn.id -> {
                 if (binding.editPeso.text.isNotEmpty() && binding.editAltura.text.isNotEmpty()) {
 
-                    peso = binding.editPeso.text.toString().toDouble()
-                    altura = binding.editAltura.text.toString().toDouble()
                     var resultado = "Peso: $peso, Altura: $altura, Sexo: $sexo"
-                    Snackbar.make(binding.root,resultado,Snackbar.LENGTH_SHORT).show()
+                    Snackbar.make(binding.root, resultado, Snackbar.LENGTH_SHORT).show()
                     bundle.putDouble("peso", peso)
-                    bundle.putDouble("altura",altura)
-                    bundle.putChar("sexo", sexo)
-                    intent.putExtra("bundle",bundle)
+                    bundle.putDouble("altura", altura)
+                    bundle.putInt("sexo", sexo)
+                    intent.putExtra("bundle", bundle)
                     startActivity(intent)
 
-                }else{
-                    Snackbar.make(binding.root,"Faltan datos",Snackbar.LENGTH_SHORT).show()
+                } else {
+                    Snackbar.make(binding.root, "Faltan datos", Snackbar.LENGTH_SHORT).show()
                 }
 
             }
@@ -56,16 +53,14 @@ class MainActivity : AppCompatActivity(), OnClickListener, RadioGroup.OnCheckedC
     }
 
     override fun onCheckedChanged(group: RadioGroup?, checkedId: Int) {
-        when (checkedId) {
-            binding.radioMasculino.id -> {
-                sexo = 'M'
 
-            }
+    }
 
-            binding.radioFemenino.id -> {
-                sexo='F'
-            }
-        }
+    override fun onRestart() {
+        super.onRestart()
+        binding.editAltura.text.clear()
+        binding.editPeso.text.clear()
+
     }
 
 
