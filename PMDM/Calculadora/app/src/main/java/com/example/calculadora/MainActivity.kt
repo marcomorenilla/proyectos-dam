@@ -13,7 +13,7 @@ import com.google.android.material.snackbar.Snackbar
 class MainActivity : AppCompatActivity(), OnClickListener {
 
 
-    //Zona declarativa
+    //Declaramos binding
     private lateinit var binding: ActivityMainBinding
 
 
@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity(), OnClickListener {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        //Recuperar en cambio de configuración
+        //Recuperar datos necesarios con savedInstanceState
         numero1 = savedInstanceState?.getString("numero1") ?: null
         bufferEntrada = savedInstanceState?.getString("bufferEntrada") ?: ""
         operando = savedInstanceState?.getString("operando") ?: null
@@ -31,6 +31,7 @@ class MainActivity : AppCompatActivity(), OnClickListener {
 
 
         //Listeners -> fun escuchar()
+        //TODO Añadir botones para layout land
         escuchar()
 
 
@@ -46,12 +47,14 @@ class MainActivity : AppCompatActivity(), OnClickListener {
         outState.putString("operando", operando)
     }
 
+    //Variables necesarias en onclick
     var bufferEntrada: String = ""
     var operando: String? = null
     var numero1: String? = null
     var numero2: String? = null
     var resultado: String? = null
     val formatoDecimal = Regex("""\.0$""")
+
     override fun onClick(v: View?) {
         when (v?.id) {
             binding.botonComa.id -> {
@@ -173,7 +176,7 @@ class MainActivity : AppCompatActivity(), OnClickListener {
             }
 
             binding.botonIgual.id -> {
-                if (numero1 != null) {
+                if (numero1 != null && operando!=null) {
                     numero1 = numero1!!.replace(",", ".")
                     numero2 = bufferEntrada.replace(",", ".")
                     when (operando) {
