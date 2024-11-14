@@ -3,6 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
+    android:background="@color/white"
+    android:padding="24dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
@@ -23,6 +25,7 @@
             android:layout_height="match_parent"
             android:scaleType="centerCrop"
             android:src="@drawable/up"
+            android:background="@color/white"
             app:layout_constraintBottom_toBottomOf="@id/cardUp"
             app:layout_constraintEnd_toStartOf="@+id/cardUp"
             app:layout_constraintStart_toStartOf="@id/cardUp" />
@@ -36,18 +39,30 @@
         android:layout_marginBottom="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:cardCornerRadius="500dp"
+
         app:layout_constraintStart_toStartOf="@+id/guideline2">
 
         <ImageButton
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="100dp"
+            android:id="@+id/botonBajar"
+            android:layout_height="100dp"
             android:scaleType="centerCrop"
             android:src="@drawable/down"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/guideline2" />
+            android:background="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.cardview.widget.CardView>
+
+    <ImageView
+        android:id="@+id/fondoJuego"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@drawable/cf"
+        app:layout_constraintBottom_toTopOf="@+id/cardUp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
     <androidx.constraintlayout.widget.Guideline
