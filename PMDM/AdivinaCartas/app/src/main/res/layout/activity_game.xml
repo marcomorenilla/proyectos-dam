@@ -5,27 +5,50 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/cf"
+
     tools:context=".GameActivity">
 
-    <ImageButton
-        android:id="@+id/botonSubir"
+    <androidx.cardview.widget.CardView
         android:layout_width="100dp"
+        android:id="@+id/cardUp"
+        android:layout_marginBottom="30dp"
         android:layout_height="100dp"
-        android:src="@drawable/up"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginBottom="30dp"/>
+        app:layout_constraintStart_toStartOf="parent">
 
-    <ImageButton
+        <ImageButton
+            android:id="@+id/botonSubir"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/up"
+            app:layout_constraintBottom_toBottomOf="@id/cardUp"
+            app:layout_constraintEnd_toStartOf="@+id/cardUp"
+            app:layout_constraintStart_toStartOf="@id/cardUp" />
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:src="@drawable/down"
+        android:id="@+id/cardDown"
+        android:layout_marginBottom="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/guideline2"
-        android:layout_marginBottom="30dp"/>
+        app:cardCornerRadius="500dp"
+        app:layout_constraintStart_toStartOf="@+id/guideline2">
+
+        <ImageButton
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/down"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/guideline2" />
+    </androidx.cardview.widget.CardView>
+
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"

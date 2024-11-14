@@ -25,12 +25,9 @@ class GameActivity : AppCompatActivity() {
         //Creamos Snackbar para empezar el juego
         Snackbar.make(binding.root,"Bienvenido $nombre, pulsa empezar para jugar", Snackbar.LENGTH_INDEFINITE)
             .setAction("Empezar"){
-                //Pendiente de dar funcionalidad
+                //TODO Pendiente de dar funcionalidad
             }.show()
     }
 
-    fun random():Int{
-
-        return 0
-    }
+    
 }
