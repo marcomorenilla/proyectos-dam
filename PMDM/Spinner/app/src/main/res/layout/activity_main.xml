@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_margin="24dp"
+    
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:id="@+id/cardView"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="500dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+    
+    <ImageView
+    android:id="@+id/imageView"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:src="@drawable/login"
+    app:layout_constraintBottom_toTopOf="@+id/guideline"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.cardview.widget.CardView>
+    
+    
+
+    <EditText
+        android:id="@+id/editUser"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Introduce tu nombre..."
+        android:enabled="false"
+        app:layout_constraintEnd_toEndOf="@+id/cardView"
+        app:layout_constraintStart_toStartOf="@+id/cardView"
+        app:layout_constraintTop_toTopOf="@+id/guideline" />
+
+    <EditText
+        android:id="@+id/editPass"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:enabled="false"
+        android:hint="Introduce tu contraseña..."
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="@+id/editUser"
+        app:layout_constraintStart_toStartOf="@+id/editUser"
+        app:layout_constraintTop_toBottomOf="@+id/editUser" />
+
+    <TextView
+        android:id="@+id/textSpinner"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="left"
+        android:text="Elige tipo de perfil:"
+        app:layout_constraintEnd_toEndOf="@+id/editPass"
+        app:layout_constraintStart_toStartOf="@+id/editPass"
+        app:layout_constraintTop_toBottomOf="@+id/editPass" />
+
+    <Spinner
+        android:layout_width="0dp"
+        android:entries="@array/spinnerSimple"
+        android:id="@+id/spinnerLog"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        app:layout_constraintEnd_toEndOf="@+id/textSpinner"
+        app:layout_constraintStart_toStartOf="@+id/textSpinner"
+        app:layout_constraintTop_toBottomOf="@+id/textSpinner" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:id="@+id/btnLog"
+        android:text="Log"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textSpinner" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.4" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Spinner</string>
+    <string-array name="spinnerSimple">
+        <item>Invitado</item>
+        <item>Usuario</item>
+    </string-array>
+</resources>
