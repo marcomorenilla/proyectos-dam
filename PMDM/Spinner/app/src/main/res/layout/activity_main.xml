@@ -38,7 +38,6 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="Introduce tu nombre..."
-        android:enabled="false"
         app:layout_constraintEnd_toEndOf="@+id/cardView"
         app:layout_constraintStart_toStartOf="@+id/cardView"
         app:layout_constraintTop_toTopOf="@+id/guideline" />
@@ -48,33 +47,22 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        android:enabled="false"
         android:hint="Introduce tu contraseña..."
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="@+id/editUser"
         app:layout_constraintStart_toStartOf="@+id/editUser"
         app:layout_constraintTop_toBottomOf="@+id/editUser" />
 
-    <TextView
-        android:id="@+id/textSpinner"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:gravity="left"
-        android:text="Elige tipo de perfil:"
-        app:layout_constraintEnd_toEndOf="@+id/editPass"
-        app:layout_constraintStart_toStartOf="@+id/editPass"
-        app:layout_constraintTop_toBottomOf="@+id/editPass" />
 
     <Spinner
         android:layout_width="0dp"
         android:entries="@array/spinnerSimple"
         android:id="@+id/spinnerLog"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        app:layout_constraintEnd_toEndOf="@+id/textSpinner"
-        app:layout_constraintStart_toStartOf="@+id/textSpinner"
-        app:layout_constraintTop_toBottomOf="@+id/textSpinner" />
+        android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toEndOf="@+id/editPass"
+        app:layout_constraintStart_toStartOf="@+id/editPass"
+        app:layout_constraintTop_toBottomOf="@+id/editPass" />
 
     <Button
         android:layout_width="wrap_content"
@@ -84,7 +72,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textSpinner" />
+        app:layout_constraintTop_toTopOf="@+id/editPass" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
