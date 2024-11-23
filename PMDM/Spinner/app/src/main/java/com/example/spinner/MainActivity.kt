@@ -53,6 +53,9 @@ class MainActivity : AppCompatActivity(),  OnClickListener, OnItemSelectedListen
                             Snackbar.make(binding.root,"Usuario no encontrado",Snackbar.LENGTH_SHORT).show()
                         } else{
                             bundle.putSerializable("usuarios", listaUsuario)
+
+                            Log.v("listamain", listaUsuario.size.toString())
+
                             intent.putExtra("bundle",bundle)
                             startActivity(intent)
                         }
