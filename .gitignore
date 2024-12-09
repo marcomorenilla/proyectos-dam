@@ -13,3 +13,6 @@ AD/FicherosJava/nbproject/build-impl.xml
 AD/FicherosJava/nbproject/genfiles.properties
 AD/FicherosJava/nbproject/project.properties
 AD/FicherosJava/nbproject/project.xml
+/AD/PostgreSQL/target/
+AD/PostgreSQL/nbactions.xml
+/AD/PostgreSQL/src/main/java/utils
