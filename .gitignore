@@ -35,3 +35,6 @@ PMDM/RepasoExamen/gradle/wrapper/gradle-wrapper.properties
 PMDM/RepasoExamen/gradlew
 PMDM/RepasoExamen/gradlew.bat
 PMDM/RepasoExamen/settings.gradle.kts
+/AD/Excepciones/target/
+AD/Excepciones/nbactions.xml
+AD/Excepciones/pom.xml
