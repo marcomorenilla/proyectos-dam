@@ -21,17 +21,24 @@ public class Excepciones {
      *
      *
      */
+    public static void main(String[] args) {
 
-    public static void main(String[] args) throws ExcepcionTelefono {
+        String telefono = "+34666555444";
+        String prefijo = telefono.substring(0, 3);
+        try {
+            if (!prefijo.equals("+34")) {
 
-       String telefono = "+34666555444";
-       String prefijo = telefono.substring(0,3);
-        
-        if(!prefijo.equals("+32")){
-            throw new ExcepcionTelefono("Solo está permitido el +34");
+                throw new ExcepcionTelefono("Solo está permitido el +34");
+            }
+            if (telefono.length() != 12) {
+
+                throw new ExcepcionTelefono("Longitud no válida");
+
+            }
+        } catch (ExcepcionTelefono e) {
+            System.err.println(e.getMessage());
         }
-        
-        
+
         /* try (FileReader f = new FileReader("hola.txt");) {
             int[] vector = new int[5];
             
@@ -48,8 +55,6 @@ public class Excepciones {
         }finally{
             System.out.println("Fin del programa");
         }
-        */
-       
-       
+         */
     }
 }
