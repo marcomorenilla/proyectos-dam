@@ -1,0 +1,29 @@
+#gitignore NetBeans template
+
+
+# NetBeans-specific files
+/nbproject/private/
+/build/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+/target/*
+/src/main/java/utils/*
+
+# Compiled class files
+*.class
+
+# Log files
+*.log
+
+# Package files
+*.jar
+*.war
+*.ear
+
+# Others
+*.bak
+*.swp
+*~.nib
+*.tmp

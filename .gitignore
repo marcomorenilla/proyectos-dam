@@ -87,3 +87,10 @@ PMDM/RepasoExamenFinal/app/src/main/res/mipmap-xhdpi/ic_launcher.webp
 PMDM/RepasoExamenFinal/app/src/main/res/mipmap-mdpi/ic_launcher_round.webp
 PMDM/RepasoExamenFinal/app/src/main/res/layout/activity_second.xml
 *.xml
+*.properties
+*.jar
+Retos/AD/ProyectoHibernate/dist/README.TXT
+Retos/AD/ProyectoHibernate/manifest.mf
+Retos/AD/RetoJSON/manifest.mf
+Retos/AD/ProyectoHibernate/build/classes/.netbeans_update_resources
+Retos/AD/ProyectoHibernate/build/classes/.netbeans_automatic_build

@@ -1,0 +1,8 @@
+/RetoXML/target/
+/RetoJSON/nbproject/private/
+/RetoJSON/dist/
+/RetoJSON/build/
+/RetoJDBC/nbproject/private/
+/RetoJDBC/build/
+/RetoJDBC/dist/
+/RetoMongoDB/target/
