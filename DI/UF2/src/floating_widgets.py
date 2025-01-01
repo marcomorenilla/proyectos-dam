@@ -45,8 +45,22 @@ class FloatingWidgets (QMainWindow):
 
         statusbar = self.statusBar()
         statusbar.addPermanentWidget(QLabel(platform.system()))
+        
 
-        # TODO: Añadir el resto del ejemplo
+        # Creamos complemento base
+        # QDockWidget es de tipo ventana flotante
+        # setWidget lo convierte en un área de texto
+
+        dock = QDockWidget()
+        dock.setWindowTitle('QDock')
+        dock.setMinimumWidth(50)
+        dock.setMinimumHeight(50)
+        dock.setWidget(QTextEdit())
+
+        # Añadimos complemento a MainWindow
+
+        self.addDockWidget(Qt.RightDockWidgetArea, dock)
+        self.setCentralWidget(QLabel('Complemento central'))
 
 
     def print_message(self):
