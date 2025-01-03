@@ -15,7 +15,7 @@ class WorkerThread(QThread):
 
     def run(self):
         for i in range(11):
-            self.sleep(1)  # Simulate work
+            self.sleep(1)
             self.progress.emit(i)
         self.finished.emit()
 
