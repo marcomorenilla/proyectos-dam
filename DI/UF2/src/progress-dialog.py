@@ -1,5 +1,3 @@
-__package__
-
 # Trabajamos componentes de UI de la UF2
 # Archivo con descripciones ventana.py
 # Utilizamos la librería PySide6

@@ -4,8 +4,31 @@
 # Autor: Marco Antonio Morenilla Alonso
 # Clase de principal + ejecuciones
 
-from PySide6.QtWidgets import QApplication, QMainWindow, QPushButton
-from custom_dialog import CustomDialog
+from PySide6.QtWidgets import QApplication, QMainWindow, QPushButton, QDialog, QDialogButtonBox, QVBoxLayout, QLabel
+
+class CustomDialog(QDialog):
+    
+    def __init__(self, parent = None):
+        super().__init__(parent)
+        self.setWindowTitle('CustomDialog')
+
+        # Definimos caja de botones
+        # Conectamos con señales
+
+        buttons = QDialogButtonBox.Ok | QDialogButtonBox.Cancel
+        self.button_box = QDialogButtonBox(buttons)
+
+        self.button_box.accepted.connect(self.accept)
+        self.button_box.rejected.connect(self.reject)
+
+        # Añadimos layout
+
+        self.layout_box = QVBoxLayout()
+        self.layout_box.addWidget(QLabel('¿Deseas realizar esta acción?'))
+        self.layout_box.addWidget(self.button_box)
+        self.setLayout(self.layout_box)
+
+### Fin de clase ###
 
 class MainWindow(QMainWindow):
 
