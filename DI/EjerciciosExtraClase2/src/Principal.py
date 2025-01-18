@@ -18,7 +18,7 @@ class Principal(QMainWindow):
             self.contador=0
             self.ui.lblYellow.setStyleSheet("background-color:transparent")
             self.ui.lblGreen.setStyleSheet("background-color: green")
-            
+
         elif self.contador ==1:
             self.contador += 1
             self.ui.lblRed.setStyleSheet("background-color: transparent")
