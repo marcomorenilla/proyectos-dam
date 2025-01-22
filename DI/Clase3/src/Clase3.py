@@ -1,3 +1,5 @@
+from traceback import print_tb
+
 from PySide6.QtWidgets import QWidget, QApplication, QVBoxLayout, QLineEdit, QGridLayout, QPushButton
 
 from PySide6.QtCore import Qt
@@ -41,8 +43,17 @@ class Clase3(QWidget):
 
 
     def manejar_click(self):
+        # Si el último carácter es un signo de operación:
+        #   - ignoro pulsaciones de los signos de operación
+
         boton = self.sender()
         texto = boton.text()
+        operaciones = ['+','-','*','/']
+        last_char = ""
+
+        for character in self.pantalla.text():
+            last_char = character
+
 
         if texto ==  'C':
             self.pantalla.clear()
@@ -53,7 +64,8 @@ class Clase3(QWidget):
             except Exception:
                 self.pantalla.setText("Error")
         else:
-            self.pantalla.setText(self.pantalla.text() + texto)
+            if not (texto in operaciones and last_char in operaciones):
+                self.pantalla.setText(self.pantalla.text() + texto)
 
 
 if __name__ == "__main__":
