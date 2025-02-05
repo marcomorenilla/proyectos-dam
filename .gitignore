@@ -99,3 +99,9 @@ DI/UF2/src/custom-dialog/__pycache__/custom_dialog.cpython-313.pyc
 *.pyc
 *.iml
 
+/PSP/ProductorConsumidor/nbproject/private/
+/PSP/ProductorConsumidor/build/
+/PSP/DinnigPhilosophers/nbproject/private/
+/PSP/DinnigPhilosophers/build/
+PSP/DinnigPhilosophers/manifest.mf
+PSP/ProductorConsumidor/manifest.mf
