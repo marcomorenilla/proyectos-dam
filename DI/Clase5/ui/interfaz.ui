@@ -82,6 +82,7 @@
     <property name="title">
      <string>Tools</string>
     </property>
+    <addaction name="actionMensaje"/>
    </widget>
    <addaction name="menuFile"/>
    <addaction name="menuEdit"/>
@@ -101,6 +102,11 @@
   <action name="actionLimpiar">
    <property name="text">
     <string>Limpiar</string>
+   </property>
+  </action>
+  <action name="actionMensaje">
+   <property name="text">
+    <string>Mostrar mensaje</string>
    </property>
   </action>
  </widget>
