@@ -6,6 +6,7 @@ from PySide6.QtWidgets import QMainWindow, QApplication, QWidget, QVBoxLayout, Q
     QPushButton, QMessageBox, QListWidgetItem, QMenuBar, QInputDialog, QMenu
 
 
+
 class Tarea(QMainWindow):
     def __init__(self, current_row=None):
         super().__init__()

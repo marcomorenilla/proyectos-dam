@@ -3,7 +3,6 @@ from PySide6.QtGui import QAction
 from PySide6.QtWidgets import QMainWindow, QApplication, QVBoxLayout, QWidget, QPushButton, QDialog, QLineEdit, \
     QMessageBox, QMenuBar, QMenu
 
-
 class Contactos(QMainWindow):
     def __init__(self):
         super().__init__()
