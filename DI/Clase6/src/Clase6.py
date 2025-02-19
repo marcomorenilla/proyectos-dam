@@ -1,3 +1,5 @@
+from time import sleep
+
 from PySide6.QtCore import Property, Signal, Slot, QTimer
 from PySide6.QtGui import QColor
 from PySide6.QtWidgets import QPushButton, QApplication, QGraphicsDropShadowEffect
@@ -9,19 +11,22 @@ class CustomButton(QPushButton):
 
     def __init__(self, text = "Texto inicial"):
         super().__init__(text) # Llamos al constructor de QPushButton
-        self._text = text # Inicializo el atributo _text con el texto proporcionado
-        self.set_color_based_on_text()
+        self.__text = text # Inicializo el atributo _text con el texto proporcionado
+        # Quito esta línea para que la función se ejecute en el setter
+        #self.set_color_based_on_text()
+        self.textoCambiado.connect(self.on_text_changed)
 
     @Property(str) # Definimos una propiedad "text" que devuelve el valor del texto
     def text(self):
-        return self._text
+        return self.__text
 
     @text.setter
     def text(self,value):
-        if self._text != value: # Si el texto es diferente al anterior
-            self._text = value # Actualizo el valor del atributo
+        if self.__text != value: # Si el texto es diferente al anterior
+            self.__text = value # Actualizo el valor del atributo
             self.setText(value) # Cambio el texto del boton
             self.textoCambiado.emit(value) # Emito la señal de texto cambiado
+            self.set_color_based_on_text()  # Añado esta línea para que cada vez que se cambie el texto se cambie el color
 
     def set_color_based_on_text(self):
         #Definir un diccionario de colores
@@ -30,13 +35,15 @@ class CustomButton(QPushButton):
             "Verde" : "green",
             "Azul" : "blue"
         }
-        color = color_map.get(self._text, "gray") # Si no encuentra el texto usar gray
-        self.setStyleSheet(f"background-color: {color};")
+        color = color_map.get(self.__text, "gray") # Si no encuentra el texto usar gray
+        # Elimino esta parte para delegar el cambio de color a la función animate_color_changed
+        #self.setStyleSheet(f"background-color: {color};")
+        self.animate_color_changed(color)
 
     @Slot(str)  # TextoCambiado ha sido emitido pues se ejecuta
     def on_text_changed(self):
         print(f"El texto del boton cambio")
-        self.set_text_size(16)
+        self.setStyleSheet("font-size: 16px;")
 
     def add_shadow_efect(self):
         #Creo un efecto de sombra
@@ -85,6 +92,6 @@ if __name__ == "__main__":
     app = QApplication([]) # Aplicacion de QT
     button = CustomButton("Rojo")
     button.show()
-    button.setText("Verde")
-    button.animate_color_changed("green") # Iniciamos la animacion de cambio de colro hacia el azul
+    button.text="Verde"
+    #button.animate_color_changed("green") # Iniciamos la animacion de cambio de colro hacia el azul
     app.exec()
