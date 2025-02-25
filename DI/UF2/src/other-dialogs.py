@@ -68,10 +68,11 @@ class OtherDialogs (QMainWindow):
 
         dialog = QFileDialog.getOpenFileName(self,caption='Abrir archivo...',
         dir='.',
-        filter='Texto (*.txt);; PDF (*.pdf)',
-        selectedFilter='PDF (*.pdf)')
+        filter='Texto (*.txt);; PDF (*.pdf) ;; PNG (*.png);',
+        selectedFilter='PNG (*.png)')
 
         file_1 = dialog[0]
+        print('el archivo es: ', file_1)
         # A partir de aquí trabajamos con el archivo
 
     def save_file(self):
