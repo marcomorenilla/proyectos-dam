@@ -31,7 +31,7 @@ class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
         self.setWindowTitle("Gestor de libros")
-        self.setGeometry(300, 300, 400, 300)
+        self.setGeometry(300, 300, 800, 400)
 
         # Creamos central widget
         central_layout = QVBoxLayout()
@@ -54,6 +54,7 @@ class MainWindow(QMainWindow):
         tool_bar = QToolBar()
         tool_bar.setMovable(False)
         self.addToolBar(Qt.LeftToolBarArea ,tool_bar)
+
 
         # Acciones de la app
         tool_bar.addSeparator()
@@ -80,17 +81,37 @@ class MainWindow(QMainWindow):
         show_details_action.triggered.connect(self.show_details)
         tool_bar.addAction(show_details_action)
 
+        #Añadimos menu bar
+        menu_bar = QMenuBar()
+        self.setMenuBar(menu_bar)
+        add_action_no_icon = QAction('&Añadir libro', self)
+        add_action_no_icon.triggered.connect(self.show_form)
+        menu_bar.addAction(add_action_no_icon)
+
+        edit_action_no_icon = QAction('&Editar libro', self)
+        edit_action_no_icon.triggered.connect(self.show_form)
+        menu_bar.addAction(edit_action_no_icon)
+
+        delete_action_no_icon = QAction('&Eliminar libro', self)
+        delete_action_no_icon.triggered.connect(self.delete_libro)
+        menu_bar.addAction(delete_action_no_icon)
+
+        show_details_action_no_icon = QAction('&Ver detalles', self)
+        show_details_action_no_icon.triggered.connect(self.show_details)
+        menu_bar.addAction(show_details_action_no_icon)
 
         # Tabla para mostrar libros
         self.table = QTableWidget()
-        self.table.setColumnCount(2)
-        self.table.setHorizontalHeaderLabels(["Título", "Autor"])
+        self.table.setColumnCount(3)
+        self.table.setHorizontalHeaderLabels(["Título", "Autor","Estado"])
+
 
         # Política para ajustar la tabla al ancho disponible
         self.table.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
         self.table.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOn)
         self.table.horizontalHeader().setSectionResizeMode(0, QHeaderView.Stretch)
         self.table.horizontalHeader().setSectionResizeMode(1, QHeaderView.Stretch)
+        self.table.horizontalHeader().setSectionResizeMode(2, QHeaderView.Stretch)
 
         # Permite selecciones únicas y selecciona toda la fila
         self.table.setSelectionBehavior(QAbstractItemView.SelectRows)
@@ -98,12 +119,10 @@ class MainWindow(QMainWindow):
 
         # Tabla de solo lectura
         self.table.setEditTriggers(QAbstractItemView.NoEditTriggers)
-
         central_layout.addWidget(self.table)
         self.show_libros()
 
-
-
+    # Función que crea el formulario dependiendo de la acción.
     def show_form(self):
         action = self.sender()
         action_text = action.text().split(" ")
@@ -174,16 +193,24 @@ class MainWindow(QMainWindow):
         print('Actualizando libro')
         con = sqlite3.connect("libros.db")
         cursor = con.cursor()
-        cursor.execute("SELECT titulo, autor  FROM libros")
+        cursor.execute("SELECT titulo, autor, estado  FROM libros")
         libros = cursor.fetchall()
         con.close()
         self.table.setRowCount(len(libros))
 
-        for row, (titulo, autor) in enumerate(libros):
-            self.table.setItem(row, 0, QTableWidgetItem(titulo))
-            self.table.setItem(row, 1, QTableWidgetItem(autor))
+        for row, (titulo, autor, estado) in enumerate(libros):
 
+            item_titulo = QTableWidgetItem(titulo)
+            item_autor = QTableWidgetItem(autor)
+            item_estado = QTableWidgetItem(estado)
 
+            item_titulo.setTextAlignment(Qt.AlignCenter)
+            item_autor.setTextAlignment(Qt.AlignCenter)
+            item_estado.setTextAlignment(Qt.AlignCenter)
+
+            self.table.setItem(row, 0, item_titulo)
+            self.table.setItem(row, 1, item_autor)
+            self.table.setItem(row, 2, item_estado)
 
     def delete_libro(self):
         print('Eliminando libro')
@@ -237,9 +264,7 @@ class MainWindow(QMainWindow):
 
             self.details_window = Details(datos)
             self.details_window.show()
-
-
-
+            self.details_window.signal_actualizado.connect(self.show_libros)
 
 
 
@@ -334,10 +359,14 @@ class Form(QWidget):
 
     @Slot(str)
     def check_vacio(self):
-        self._title_input.setStyleSheet("border: 1px solid red;")
-        self._author_input.setStyleSheet("border: 1px solid red;")
+        self._title_input.setStyleSheet("border: 1px solid  red; border-radius: 5px; padding: 5px;")
+        self._author_input.setStyleSheet("border: 1px solid  red; border-radius: 5px; padding: 5px;")
+
 
 class Details(QWidget):
+
+    signal_actualizado =Signal(str)
+
     def __init__(self, datos_libro):
 
         super().__init__()
@@ -386,7 +415,7 @@ class Details(QWidget):
         print('Enviando datos ', datos_form)
 
         respuesta = QMessageBox.question(self, "Editando libro",
-                                         f"Vas a editar {datos_form.get('title')}, una vez hecho los cambios no pueden deshacerse, asegurate de tener una copia a mano",
+                                         f"Vas a editar {self.datos_recibidos.get('title')}, una vez hecho los cambios no pueden deshacerse, asegurate de tener una copia a mano",
                                          QMessageBox.Yes | QMessageBox.No)
         if respuesta == QMessageBox.Yes:
             try:
@@ -401,21 +430,32 @@ class Details(QWidget):
                     estado =?
                     WHERE titulo = ?
                     """,
-                    (datos_form['title'], datos_form['author'], datos_form['description'], datos_form['img'], datos_form['state'], datos_form['title']))
+                    (datos_form['title'], datos_form['author'], datos_form['description'], datos_form['img'], datos_form['state'], self.datos_recibidos['title']))
                 con.commit()
                 con.close()
                 QMessageBox.information(self, "Enhorabuena", "Libro editado con exito")
+                self.signal_actualizado.emit("Libro editado con exito")
                 self.close()
 
             except sqlite3.Error as e:
                 print(e)
                 QMessageBox.warning(self, "Error al editar", "Algo fue mal editando el libro")
 
-
+def apply_stylesheet(application):
+    application.setStyleSheet(
+        """
+        * {
+            font-size: 15px;
+        }
+        """
+    )
 
 if __name__ == '__main__':
     create_db()
     app = QApplication([])
+    icon_app_path = os.path.join(os.path.dirname(__file__), "assets\\app-icon.png")
+    apply_stylesheet(app)
+    app.setWindowIcon(QIcon(icon_app_path))
     window = MainWindow()
     window.show()
     sys.exit(app.exec())
