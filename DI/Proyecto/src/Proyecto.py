@@ -2,13 +2,12 @@ import os
 import sqlite3
 import sys
 
-from PySide6 import QtGui
-from PySide6.QtCore import Qt, Signal, Slot
-from PySide6.QtGui import QAction, QIcon, QImage, QPixmap
-from PySide6.QtWidgets import QMainWindow, QApplication, QVBoxLayout, QWidget, QMenuBar, QMenu, QToolBar, QFormLayout, \
-    QLineEdit, QTextEdit, QFileDialog, QPushButton, QComboBox, QLabel, QMessageBox, QHBoxLayout, QTableWidget, \
-    QAbstractItemView, QAbstractScrollArea, QSizePolicy, QTableWidgetItem, QHeaderView, QGridLayout
 
+from PySide6.QtCore import Qt, Signal, Slot, Property
+from PySide6.QtGui import QAction, QIcon, QPixmap
+from PySide6.QtWidgets import QMainWindow, QApplication, QVBoxLayout, QWidget, QMenuBar, QToolBar, QFormLayout, \
+    QLineEdit, QTextEdit, QFileDialog, QPushButton, QComboBox, QLabel, QMessageBox, QHBoxLayout, QTableWidget, \
+    QAbstractItemView, QSizePolicy, QTableWidgetItem, QHeaderView, QGridLayout
 
 # creamos db
 def create_db():
@@ -82,8 +81,11 @@ class MainWindow(QMainWindow):
         tool_bar.addAction(show_details_action)
 
         #Añadimos menu bar
+
         menu_bar = QMenuBar()
         self.setMenuBar(menu_bar)
+
+
         add_action_no_icon = QAction('&Añadir libro', self)
         add_action_no_icon.triggered.connect(self.show_form)
         menu_bar.addAction(add_action_no_icon)
@@ -142,6 +144,8 @@ class MainWindow(QMainWindow):
 
     def add_libro(self, datos):
         self.datos_libro = datos
+        if self.datos_libro['img'] == '':
+            self.datos_libro['img'] = 'D:/GitHub/proyectos-dam/DI/Proyecto/src/assets/book.jpg'
         print("Añadiendo: ", datos)
         try:
             con = sqlite3.connect('libros.db')
@@ -149,7 +153,7 @@ class MainWindow(QMainWindow):
             cursor.execute("""
             INSERT INTO libros (titulo, autor, descripcion, img_path, estado)
             VALUES (?, ?, ?, ?, ?)
-            """, (datos['title'],datos['author'], datos['description'], datos['img'], datos['state']))
+            """, (self.datos_libro['title'],self.datos_libro['author'], self.datos_libro['description'], self.datos_libro['img'], self.datos_libro['state']))
             con.commit()
             con.close()
             QMessageBox.information(self,"Enhorabuena","Libro añadido a la colección")
@@ -162,6 +166,8 @@ class MainWindow(QMainWindow):
         selected_row = self.table.currentRow()
         print("fila seleccionada: ", selected_row)
         self.datos_libro = datos
+        if self.datos_libro['img'] == '':
+            self.datos_libro['img'] = 'D:/GitHub/proyectos-dam/DI/Proyecto/src/assets/book.jpg'
         print('Editando libro: ',datos)
 
         libro = self.table.item(selected_row,0).text()
@@ -180,7 +186,7 @@ class MainWindow(QMainWindow):
                     img_path =?,
                     estado =?
                     WHERE titulo = ?
-                    """,(datos['title'],datos['author'], datos['description'], datos['img'], datos['state'], libro))
+                    """,(self.datos_libro['title'],self.datos_libro['author'], self.datos_libro['description'], self.datos_libro['img'], self.datos_libro['state'], libro))
                 con.commit()
                 con.close()
                 QMessageBox.information(self, "Enhorabuena", "Libro editado con exito")
@@ -202,15 +208,15 @@ class MainWindow(QMainWindow):
 
             item_titulo = QTableWidgetItem(titulo)
             item_autor = QTableWidgetItem(autor)
-            item_estado = QTableWidgetItem(estado)
+            label_estado = CustomLabel(estado)
+            label_estado.setAlignment(Qt.AlignCenter)
 
             item_titulo.setTextAlignment(Qt.AlignCenter)
             item_autor.setTextAlignment(Qt.AlignCenter)
-            item_estado.setTextAlignment(Qt.AlignCenter)
 
             self.table.setItem(row, 0, item_titulo)
             self.table.setItem(row, 1, item_autor)
-            self.table.setItem(row, 2, item_estado)
+            self.table.setCellWidget(row, 2, label_estado)
 
     def delete_libro(self):
         print('Eliminando libro')
@@ -391,18 +397,21 @@ class Details(QWidget):
         label_titulo = QLabel(f"<b>Título:</b><br> {self.datos_recibidos.get('title')}")
         label_autor = QLabel(f"<b>Autor:</b><br> {self.datos_recibidos.get('author')}")
         label_descripcion = QLabel(f"<b>Descripción:</b><br> {self.datos_recibidos.get('description') or 'No hay descripción'}")
-        label_estado = QLabel(f"<b>Estado:</b><br> {self.datos_recibidos.get('state')}")
+        label_estado = QLabel("<b>Estado:</b>")
+        label_custom = CustomLabel(f"{self.datos_recibidos.get('state')}")
 
 
-        self.layout.addWidget(label_imagen,0,0,4,1)
+
+        self.layout.addWidget(label_imagen,0,0,5,1)
         self.layout.addWidget(label_titulo,0,1)
         self.layout.addWidget(label_autor,1,1)
         self.layout.addWidget(label_descripcion,2,1)
         self.layout.addWidget(label_estado,3,1)
+        self.layout.addWidget(label_custom,4,1)
 
         btn_actualizar = QPushButton('Actualizar')
         btn_actualizar.clicked.connect(self.show_form)
-        self.layout.addWidget(btn_actualizar,4,0,1,2)
+        self.layout.addWidget(btn_actualizar,5,0,1,2)
 
     def show_form(self):
         print('Enviando form')
@@ -411,8 +420,10 @@ class Details(QWidget):
         self.form_window.datos_form.connect(self.update_datos)
 
     def update_datos(self, datos_form):
-
+        self.datos_libro = datos_form
         print('Enviando datos ', datos_form)
+        if self.datos_libro['img'] == '':
+            self.datos_libro['img'] = 'D:/GitHub/proyectos-dam/DI/Proyecto/src/assets/book.jpg'
 
         respuesta = QMessageBox.question(self, "Editando libro",
                                          f"Vas a editar {self.datos_recibidos.get('title')}, una vez hecho los cambios no pueden deshacerse, asegurate de tener una copia a mano",
@@ -430,7 +441,7 @@ class Details(QWidget):
                     estado =?
                     WHERE titulo = ?
                     """,
-                    (datos_form['title'], datos_form['author'], datos_form['description'], datos_form['img'], datos_form['state'], self.datos_recibidos['title']))
+                    (self.datos_libro['title'],self.datos_libro['author'], self.datos_libro['description'], self.datos_libro['img'], self.datos_libro['state'], self.datos_recibidos['title']))
                 con.commit()
                 con.close()
                 QMessageBox.information(self, "Enhorabuena", "Libro editado con exito")
@@ -441,12 +452,53 @@ class Details(QWidget):
                 print(e)
                 QMessageBox.warning(self, "Error al editar", "Algo fue mal editando el libro")
 
+class CustomLabel(QLabel):
+    estado_lectura = Signal(str)
+    def __init__(self, texto):
+        super().__init__()
+        self.__text = texto
+        self.__color_text = self.set_color()
+        self.setText(texto)
+        self.setStyleSheet(f"color: {self.__color_text};")
+        self.estado_lectura.connect(self.cambiar_color)
+
+    @Property(str)
+    def texto(self):
+        return self.__text
+
+    @texto.setter
+    def texto(self, texto):
+        self.__text = texto
+        self.__color_text = self.set_color()
+        self.estado_lectura.emit(texto)
+
+    @Slot(str)
+    def cambiar_color(self):
+        print('Cambiando color ', self.__text, self.__color_text, sep =' ')
+        self.setText(self.__text)
+        self.setStyleSheet(f"color: {self.__color_text}; text-align: center;")
+
+    def set_color(self):
+        if self.__text == "Sin empezar":
+            color = "black"
+        elif self.__text == "Leyendo":
+            color = "blue"
+        else:
+            color = "green"
+        return color
+
+
+
+
 def apply_stylesheet(application):
     application.setStyleSheet(
         """
         * {
             font-size: 15px;
         }
+        
+        QMenuBar { font-size: 18px; }
+        
         """
     )
 
