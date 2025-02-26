@@ -387,8 +387,8 @@ class Form(QWidget):
         print('Seleccionando imagen')
         dialog = QFileDialog.getOpenFileName(self, caption='Abrir archivo...',
                                              dir='.',
-                                             filter='JPG (*.jpg);',
-                                             selectedFilter='JPG (*.jpg)')
+                                             filter='JPG (*.jpg) ;; PNG (*.png)',
+                                             selectedFilter='PNG (*.png)')
 
         if dialog[0]:
             self._img_path = dialog[0]
