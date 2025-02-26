@@ -111,3 +111,4 @@ PSP/PSPSockets/manifest.mf
 DI/ExtraClase6/ui/MainWindow.ui
 DI/Proyecto/libros.db
 DI/Proyecto/src/libros.db
+!DI/Proyecto/src/assets/*
