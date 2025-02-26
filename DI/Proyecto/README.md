@@ -28,9 +28,12 @@ cd proyectos-dam/DI/Proyecto/
 
 ### 2.2 Configuración entorno virtual y ejecución.
 
+> [!NOTE]
+> - Documentación realizada para un **SO Windows 11 24H2** en caso de tener problemas busca información referente a tu S.O o versión.
+
 Necesitarás instalar todas las dependencias necesarias para el proyecto:
 
-1. Crea un entorno virtual ejemplo Windows 11 busca documentación para tu SO en caso de problemas:
+1. Crea un entorno virtual:
 
 ```sh
 python -m venv .venv
@@ -39,10 +42,10 @@ python -m venv .venv
 2. Activa el entorno virtual
 
 ```sh
-source .venv\bin\activate.bat
+.venv\bin\activate.bat
 ```
 
-verás que el prompt ha cambiado añadiendo delante  **`(.venv)`**
+verás que el prompt ha cambiado añadiendo delante  **`(.venv)`**.
 
 3. Descarga dependencias
 
@@ -53,7 +56,7 @@ pip install pyside6
 4. Con el entorno virual activo ejecuta la app
 
 ```sh
-python src/Proyecto.py
+python src\Proyecto.py
 ```
 
 ### 2.3 Cierre de entorno virtual
