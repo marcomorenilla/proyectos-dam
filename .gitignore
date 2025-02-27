@@ -126,3 +126,7 @@ PSP/Reto5/manifest.mf
 PSP/Reto6/mvnw
 PSP/Reto6/mvnw.cmd
 PSP/Reto6/src/main/java/ftp/Util.java
+/DI/Clase7/build
+/DI/Clase7/dist
+DI/Clase7/Clase7.spec
+*.html
