@@ -17,7 +17,7 @@ df = pd.read_csv('inventario.csv', sep=" ")
 def generar_infome(categoria):
 
     # Filtramos los datos por categoria
-    df_categoria = df[df['Categoría'] == categoria].sort_values(by="Fecha-de-Entrada")
+    df_categoria = df[df['Categoría'] == categoria]
 
     # Imprimimos información para asegurarnos buena carga
     print(f"Imprimiendo infome de categoría {categoria}",df_categoria, sep="\n")
@@ -38,7 +38,7 @@ def generar_infome(categoria):
     cabecera = dp.HTML(f'<h2 style="color: blue;text-align:center;"> Unidades disponibles de: {categoria} </h2>')
     cabecera2 = dp.HTML(f'<h2 style="color: blue;text-align:center;"> "Evolución en el tiempo de:" {categoria} </h2>')
     cabecera3 = dp.HTML(f'<h2 style="color: blue;text-align:center;"> Tabla de: {categoria} </h2>')
-    tabla = dp.Table(df_categoria)
+    tabla = dp.DataTable(df_categoria)
 
     report = dp.Report(titulo,
                        cabecera,
