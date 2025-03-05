@@ -41,8 +41,8 @@ def test_combo(window_combo):
     window_combo.combo_changed()
     assert window_combo.lbl.styleSheet() == "font-size:10px;"
     window_combo.combo.setCurrentIndex(1)
-    window_combo.combo_changed()
+    #window_combo.combo_changed()
     assert window_combo.lbl.styleSheet() == "font-size:15px;"
     window_combo.combo.setCurrentIndex(2)
-    window_combo.combo_changed()
+    #window_combo.combo_changed()
     assert window_combo.lbl.styleSheet() == "font-size:20px;"
