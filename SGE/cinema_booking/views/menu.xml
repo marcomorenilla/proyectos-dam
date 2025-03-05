@@ -1,0 +1,21 @@
+<odoo>
+    <record id="action_cinema_booking" model="ir.actions.act_window">
+        <field name="name">Cinema Bookings</field>
+        <field name="res_model">cinema.booking</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_cinema_seat" model="ir.actions.act_window">
+        <field name="name">Cinema Seats</field>
+        <field name="res_model">cinema.seat</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_cinema_root" name="Cinema" />
+        <menuitem id="menu_cinema_seat" name="Cinema Seats" parent="menu_cinema_root"
+        action="action_cinema_seat" />
+    <menuitem id="menu_cinema_booking" name="Cinema Bookings" parent="menu_cinema_root"
+        action="action_cinema_booking" />
+
+
+</odoo>

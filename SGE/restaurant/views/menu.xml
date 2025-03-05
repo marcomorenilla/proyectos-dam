@@ -1,0 +1,28 @@
+<odoo>
+    <record id="action_restaurant_tables" model="ir.actions.act_window">
+        <field name="name">Tables</field>
+        <field name="res_model">restaurant.tables</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_restaurant_orders" model="ir.actions.act_window">
+        <field name="name">Orders</field>
+        <field name="res_model">restaurant.orders</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_restaurant_menu" model="ir.actions.act_window">
+        <field name="name">Menu</field>
+        <field name="res_model">restaurant.menu</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_restaurant_root" name="Restaurant" />
+    <menuitem id="menu_restaurant_tables" name="Tables" parent="menu_restaurant_root"
+        action="action_restaurant_tables" />
+    <menuitem id="menu_restaurant_orders" name="Orders" parent="menu_restaurant_root"
+        action="action_restaurant_orders" />
+    <menuitem id="menu_restaurant_menu" name="Menu Items" parent="menu_restaurant_root"
+        action="action_restaurant_menu" />
+
+</odoo>

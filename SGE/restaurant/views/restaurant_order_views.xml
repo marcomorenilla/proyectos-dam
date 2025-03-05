@@ -1,0 +1,29 @@
+<odoo>
+    <record id="view_restaurant_orders_form" model="ir.ui.view">
+        <field name="name">restaurant.orders.form</field>
+        <field name="model">restaurant.orders</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name" />
+                        <field name="menu_items" />
+                        <field name="total_price" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_restaurant_orders_tree" model="ir.ui.view">
+        <field name="name">restaurant.orders.tree</field>
+        <field name="model">restaurant.orders</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+                <field name="menu_items" />
+                <field name="total_price" />
+            </tree>
+        </field>
+    </record>
+</odoo>

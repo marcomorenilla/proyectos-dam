@@ -1,0 +1,40 @@
+<odoo>
+    <record id="view_sale_orders_form" model="ir.ui.view">
+        <field name="name">sale.orders.form</field>
+        <field name="model">sale.orders</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name" />
+                        <field name="amount" />
+                        <field name="discount" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_sale_orders_tree" model="ir.ui.view">
+        <field name="name">sale.orders.tree</field>
+        <field name="model">sale.orders</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+                <field name="amount" />
+                <field name="discount" />
+                <field name="final_price" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_sale_orders" model="ir.actions.act_window">
+        <field name="name">Custom Sale Orders</field>
+        <field name="res_model">sale.orders</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_sale_orders_root" name="Custom Sale Orders" />
+    <menuitem id="menu_sale_orders" name="Custom Sale Orders" parent="menu_sale_orders_root"
+        action="action_sale_orders" />
+</odoo>

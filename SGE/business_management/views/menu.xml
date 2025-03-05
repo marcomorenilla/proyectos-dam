@@ -1,0 +1,53 @@
+<odoo>
+    <record id="action_business_departments" model="ir.actions.act_window">
+        <field name="name">Departments</field>
+        <field name="res_model">business.departments</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_business_trainers" model="ir.actions.act_window">
+        <field name="name">Trainers</field>
+        <field name="res_model">business.trainers</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_business_employees" model="ir.actions.act_window">
+        <field name="name">Employees</field>
+        <field name="res_model">business.employees</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_business_bonus" model="ir.actions.act_window">
+        <field name="name">Bonus</field>
+        <field name="res_model">business.bonus</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_business_courses" model="ir.actions.act_window">
+        <field name="name">Courses</field>
+        <field name="res_model">business.courses</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_business_sessions" model="ir.actions.act_window">
+        <field name="name">Sessions</field>
+        <field name="res_model">business.sessions</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_business_root" name="Enterprise" />
+    <menuitem id="menu_business_departments" name="Departments" parent="menu_business_root"
+        action="action_business_departments" />
+    <menuitem id="menu_business_trainers" name="Trainers" parent="menu_business_root"
+        action="action_business_trainers" />
+    <menuitem id="menu_business_employees" name="Employees" parent="menu_business_root"
+        action="action_business_employees" />
+    <menuitem id="menu_business_bonus" name="Bonuses" parent="menu_business_root"
+        action="action_business_bonus" />
+    <menuitem id="menu_business_courses" name="Courses" parent="menu_business_root"
+        action="action_business_courses" />
+    <menuitem id="menu_business_sessions" name="Sessions" parent="menu_business_root"
+        action="action_business_sessions" />
+
+
+</odoo>

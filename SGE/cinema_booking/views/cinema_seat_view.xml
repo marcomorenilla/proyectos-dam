@@ -1,0 +1,31 @@
+<odoo>
+    <record id="view_cinema_seat_form" model="ir.ui.view">
+        <field name="name">cinema.seat.form</field>
+        <field name="model">cinema.seat</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name" />
+                        <field name="row" />
+                        <field name="seat_type" />
+                        <field name="available" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_cinema_seat_tree" model="ir.ui.view">
+        <field name="name">cinema.seat.tree</field>
+        <field name="model">cinema.seat</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+                <field name="row" />
+                <field name="seat_type" />
+                <field name="available" />
+            </tree>
+        </field>
+    </record>
+</odoo>

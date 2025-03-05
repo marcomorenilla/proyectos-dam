@@ -1,0 +1,31 @@
+<odoo>
+
+
+    <record id="action_clinic_doctor" model="ir.actions.act_window">
+        <field name="name">Doctors</field>
+        <field name="res_model">clinic.doctor</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_clinic_patient" model="ir.actions.act_window">
+        <field name="name">Patients</field>
+        <field name="res_model">clinic.patient</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_clinic_appointment" model="ir.actions.act_window">
+        <field name="name">Appointments</field>
+        <field name="res_model">clinic.appointment</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+        <menuitem id="menu_clinic_root" name="Clinic" />
+    
+    <menuitem id="menu_clinic_doctors" name="Doctors" parent="menu_clinic_root"
+        action="action_clinic_doctor" /> 
+    <menuitem id="menu_clinic_patients" name="Patients" parent="menu_clinic_root"
+        action="action_clinic_patient" />
+    <menuitem id="menu_clinic_appointments" name="Appointments" parent="menu_clinic_root"
+        action="action_clinic_appointment" />
+
+</odoo>

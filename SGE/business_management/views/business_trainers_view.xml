@@ -1,0 +1,27 @@
+<odoo>
+    <record id="view_business_trainers_form" model="ir.ui.view">
+        <field name="name">business.trainers.form</field>
+        <field name="model">business.trainers</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name" />
+                        <field name="company" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_business_trainers_tree" model="ir.ui.view">
+        <field name="name">business.trainers.tree</field>
+        <field name="model">business.trainers</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+                <field name="company" />
+            </tree>
+        </field>
+    </record>
+</odoo>
