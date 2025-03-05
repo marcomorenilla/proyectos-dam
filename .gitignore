@@ -141,3 +141,6 @@ DI/Simulacro1/src/build/Ejercicio2/warn-Ejercicio2.txt
 DI/Simulacro1/src/dist/Ejercicio2.exe
 DI/Simulacro1/src/Ejercicio2.spec
 !SGE/**/*.xml
+*.class
+*.rs
+*.mf

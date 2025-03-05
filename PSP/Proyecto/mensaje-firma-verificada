@@ -1,0 +1,11 @@
+run:
+Dame la clave publica 
+MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCGNsOv0RxTBXMMDAO/rSxhM93dqchi9pFfZlCw4YToENq3QraHvPdL69esea/Ef5p58JjSh3UTMFsqcaugcehSBQw2O9hKnoobbaROejLV2ccEWI5+PjrlmlN/VNuNZXsObJFvIOVpSsqGbrhCF8LXUOB00XEO1xy1qEpyYMEShwIDAQAB
+MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCGNsOv0RxTBXMMDAO/rSxhM93dqchi9pFfZlCw4YToENq3QraHvPdL69esea/Ef5p58JjSh3UTMFsqcaugcehSBQw2O9hKnoobbaROejLV2ccEWI5+PjrlmlN/VNuNZXsObJFvIOVpSsqGbrhCF8LXUOB00XEO1xy1qEpyYMEShwIDAQAB
+Dame el texto que se ha firmado: 
+No nos queda nada....
+Dame la firma que ha generado sobre ese texto: 
+FHs5r/s5LBRn/L7NC6gnIPqT/or+0cUsc0IsiFyREci/0uNLkp7OKQKPvwcrQTDrrGkmXkn9zcs4hRd+ptNs3k1w6hAdv/Chzuev9R+WYNIxd50R1ZABb5Ua9Fj+FgUOws8MpktOQ1XWmLu/kpuztHuwzih8d/cezOu3Lgrdc9Q=
+Firma verificada correctamente
+BUILD SUCCESSFUL (total time: 54 seconds)
+
